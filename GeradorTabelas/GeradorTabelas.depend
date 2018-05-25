@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1527217786 source:c:\users\john victor\desktop\ufrn\3º semestre\lip\unidade02\geradortabelas\main.cpp
+	<iostream>
+	<cstring>
+	<fstream>
+	<locale.h>
+
