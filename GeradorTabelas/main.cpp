@@ -51,7 +51,7 @@ struct CategoriasFpotm
 struct AtletasCategorias
 {
     CategoriasFpotm categoria_fpotm;
-    Inscritos inscrito[100];
+    Inscritos atleta[100];
 
 };
 
@@ -71,6 +71,7 @@ int contarCategorias(Inscritos inscrito[], Categorias c[],int n);
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
 void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont);
 void listarCategoriasFpotm(CategoriasFpotm c[]);
+void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt);
 
 int main()
 {
@@ -84,7 +85,7 @@ int main()
     Inscritos inscrito[100];
     Categorias c[100];
     CategoriasFpotm categoriaInterstadual[100];
-
+    AtletasCategorias atletaCategoria[20];
 
 
     ifstream ip("\inscritos.csv");
@@ -151,6 +152,11 @@ int main()
 
     cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
     listarCategoriasFpotm(categoriaInterstadual);
+
+    cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
+    separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt-1);
+
+
 
     return 0;
 }
@@ -288,19 +294,18 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     *                   FEMININO
     */
 
-
-
     //Criando o Rating A
-    categoriaInterestadual[0].categoria=" RATING A";
+    categoriaInterestadual[0].categoria="RATING A (MAS)";
     int a=0;
     int soma=0;
-    for(int i=n-1; i>=0; i--)
+    for(int i=n; i>=0; i--)
     {
         if(c[i].categoria=="RAM" || c[i].categoria=="RBM" || c[i].categoria=="RCM" || c[i].categoria=="RDM" || c[i].categoria=="REM")
         {
             categoriaInterestadual[0].categoria_cbtm[a]=c[i];
             soma=soma+c[i].quantidade_inscritos;
             a++;
+            cout<<"criando rating A"<<endl;
 
             if(a==5)
             {
@@ -312,10 +317,10 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     categoriaInterestadual[0].quantidade_categorias=a;
 
     //criando Rating B
-    categoriaInterestadual[1].categoria=" RATING B";
+    categoriaInterestadual[1].categoria="RATING B (MAS)";
     a=0;
     soma=0;
-    for(int i=n-1; i>=0; i--)
+    for(int i=n; i>=0; i--)
     {
         if(c[i].categoria=="RFM" || c[i].categoria=="RGM")
         {
@@ -333,10 +338,10 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
 
 
     //criando Rating C
-    categoriaInterestadual[2].categoria=" RATING C";
+    categoriaInterestadual[2].categoria="RATING C (MAS)";
     a=0;
     soma=0;
-    for(int i=n-1; i>=0; i--)
+    for(int i=n; i>=0; i--)
     {
         if(c[i].categoria=="RHM" || c[i].categoria=="RIM")
         {
@@ -355,10 +360,10 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
 
 
     //criando Rating D
-    categoriaInterestadual[3].categoria=" RATING D";
+    categoriaInterestadual[3].categoria="RATING D (MAS)";
     a=0;
     soma=0;
-    for(int i=n-1; i>=0; i--)
+    for(int i=n; i>=0; i--)
     {
         if(c[i].categoria=="RJM" || c[i].categoria=="RLM")
         {
@@ -376,10 +381,10 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     categoriaInterestadual[3].quantidade_categorias=a;
 
     //criando Rating E
-    categoriaInterestadual[4].categoria=" RATING E";
+    categoriaInterestadual[4].categoria="RATING E (MAS)";
     a=0;
     soma=0;
-    for(int i=n-1; i>=0; i--)
+    for(int i=n; i>=0; i--)
     {
         if(c[i].categoria=="RMM" || c[i].categoria=="RNM")
         {
@@ -398,7 +403,7 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
 
 
     //criando Rating F
-    categoriaInterestadual[5].categoria=" RATING F";
+    categoriaInterestadual[5].categoria="RATING F (MAS)";
     soma=0;
     for(int i=0; i<=cont; i++)
     {
@@ -418,7 +423,7 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     categoriaInterestadual[5].quantidade_inscritos=soma;
 
     //criando Rating G
-    categoriaInterestadual[6].categoria=" RATING G";
+    categoriaInterestadual[6].categoria="RATING G (MAS)";
     soma=0;
     for(int i=0; i<=cont; i++)
     {
@@ -456,7 +461,58 @@ void listarCategoriasFpotm(CategoriasFpotm c[])
     cout<<"total: "<< soma<< " inscrito(s)."<<endl;
 }
 
+void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt)
+{
+    //QUANTIDADE É A SOMA DE RATING E RANKINGS
+    int t= QUANTIDADE_RATINGS_MASCULINO_FPOTM; // FALTA OS RANKINGS E O RATING FEMININO;
+    int cont=0;
+    for(int i=0;i<t;i++)
+    {
+        cout<<"atletas da categoria: "<<c[i].categoria<<endl;
+        cont=0;
+        for(int j=0;j<c[i].quantidade_categorias;j++)
+        {
+            for(int k=0; k<qt;k++)
+            {
+                if((c[i].categoria_cbtm[j].categoria==atleta[k].rating && atleta[k].participaRAT=="SIM") || c[i].categoria_cbtm[j].categoria==atleta[k].ranking)
+                {
+                    //tratando os casos especiais, devido a nao conseguir distinguir apenas pelo rating!
+                    if( c[i].categoria=="RATING F (MAS)" && atleta[k].ranking!="SUPER PRE MIRIM (MAS)" && atleta[k].ranking!="PRE MIRIM (MAS)" && atleta[k].ranking!="MIRIM (MAS)")
+                    {
+                        cont++;
+                        atletaCategoria[i].atleta[cont]=atleta[k];
+                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+
+                    }else if( c[i].categoria=="RATING G (MAS)" && (atleta[k].ranking=="SUPER PRE MIRIM (MAS)" || atleta[k].ranking=="PRE MIRIM (MAS)" || atleta[k].ranking=="MIRIM (MAS)"))
+                    {
+                        cont++;
+                        atletaCategoria[i].atleta[cont]=atleta[k];
+                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+
+                    }else if(c[i].categoria!="RATING F (MAS)" &&  c[i].categoria!="RATING G (MAS)" )
+                    {
+                        cont++;
+                        atletaCategoria[i].atleta[cont]=atleta[k];
+                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+
+                    }
+
+                }
+
+            }
+
+        }
+        cout<<cont<<" atleta(s)!"<<endl<<endl;
+    }
 
 
+
+}
+/*
+void CriarGruposclassificatorios( AtletasCategorias atleta )
+{
+
+}
+*/
 
 
