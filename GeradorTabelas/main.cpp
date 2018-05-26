@@ -12,8 +12,7 @@
 #include <locale.h>
 //#include <array>
 
-#define MAX_TXT 50
-#define MAX_N   200
+
 
 using namespace std;
 
@@ -31,16 +30,47 @@ struct Inscritos
     string status;
 };
 
+//categorias gerais da CBTM
 struct Categorias
 {
     string categoria;
     int quantidade_inscritos;
 };
 
+// É necessario normalizar as categorias da CBTM para a categorias disponíveis do evento da FPOTM
+struct CategoriasFpotm
+{
+    string categoria;
+    Categorias categoria_cbtm[10];
+    int quantidade_inscritos;
+    int quantidade_categorias;
+
+};
+
+//preparando para criar os grupos por categoria
+struct AtletasCategorias
+{
+    CategoriasFpotm categoria_fpotm;
+    Inscritos inscrito[100];
+
+};
+
+#define MAX_TXT 50
+#define MAX_N   200
+
+//RATINGS A à G
+#define QUANTIDADE_RATINGS_MASCULINO_FPOTM 7
+//RATINGS A à D
+#define QUANTIDADE_RATINGS_FEMININO_FPOTM 4
+
+
+
 
 void detalharInscrito(Inscritos i);
 int contarCategorias(Inscritos inscrito[], Categorias c[],int n);
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
+void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont);
+void listarCategoriasFpotm(CategoriasFpotm c[]);
 
 int main()
 {
@@ -53,6 +83,7 @@ int main()
 
     Inscritos inscrito[100];
     Categorias c[100];
+    CategoriasFpotm categoriaInterstadual[100];
 
 
 
@@ -113,12 +144,13 @@ int main()
 
     cout<<"---RELATÓRIO DE INSCRITOS---"<<endl;
 
-    relatorioInscritos(inscrito,c,cont,qt);
+    relatorioInscritos(inscrito,c,cont,qt-1);
 
 
+    criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt-1);
 
-
-
+    cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
+    listarCategoriasFpotm(categoriaInterstadual);
 
     return 0;
 }
@@ -204,8 +236,6 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 {
     /*
     * emite o relatório dos inscritos por categoria
-    *
-    *
     */
 
     int a=0;
@@ -213,7 +243,7 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
     {
         a=0;
         cout<<"==="<<c[j].categoria<<"==="<<endl;
-        for(int i=1; i<=qt-1; i++)
+        for(int i=1; i<=qt; i++)
         {
             if(inscrito[i].ranking==c[j].categoria)
             {
@@ -224,7 +254,7 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
             if(inscrito[i].rating==c[j].categoria && inscrito[i].participaRAT=="SIM")
             {
                 a++;
-                cout<<"atleta: "<<inscrito[i].clube<<" | "<<inscrito[i].atleta_nome<<" | pontos:"<<inscrito[i].ratingP<<endl;
+                cout<<"atleta: "<<inscrito[i].clube<<" | "<<inscrito[i].atleta_nome<<" | pontos:"<<inscrito[i].ratingP <<" | Ranking:"<<inscrito[i].ranking<<endl;
 
             }
 
@@ -235,3 +265,198 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
         cout<<endl<<endl;
     }
 }
+
+
+void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont)
+{
+    /*  RATING DA CBTM                 RATING DA FPOTM
+    *    A ao E                              A
+    *    F - G                               B
+    *    H – I                               C
+    *    J – L                               D
+    *    M - N                               E
+    *    O                                   F
+    *    O (PRÉ-MIRIM E MIRIM)               G
+    *                   MASCULINO
+    */
+
+    /*  RATING DA CBTM                 RATING DA FPOTM
+    *    A ao E                              A
+    *    F - G - H                           B
+    *    I - J                               C
+    *    J (PRÉ-MIRIM E MIRIM)               D
+    *                   FEMININO
+    */
+
+
+
+    //Criando o Rating A
+    categoriaInterestadual[0].categoria=" RATING A";
+    int a=0;
+    int soma=0;
+    for(int i=n-1; i>=0; i--)
+    {
+        if(c[i].categoria=="RAM" || c[i].categoria=="RBM" || c[i].categoria=="RCM" || c[i].categoria=="RDM" || c[i].categoria=="REM")
+        {
+            categoriaInterestadual[0].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+
+            if(a==5)
+            {
+                break;
+            }
+        }
+    }
+    categoriaInterestadual[0].quantidade_inscritos=soma;
+    categoriaInterestadual[0].quantidade_categorias=a;
+
+    //criando Rating B
+    categoriaInterestadual[1].categoria=" RATING B";
+    a=0;
+    soma=0;
+    for(int i=n-1; i>=0; i--)
+    {
+        if(c[i].categoria=="RFM" || c[i].categoria=="RGM")
+        {
+            categoriaInterestadual[1].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+        }
+        if(a==2)
+        {
+            break;
+        }
+    }
+    categoriaInterestadual[1].quantidade_inscritos=soma;
+    categoriaInterestadual[1].quantidade_categorias=a;
+
+
+    //criando Rating C
+    categoriaInterestadual[2].categoria=" RATING C";
+    a=0;
+    soma=0;
+    for(int i=n-1; i>=0; i--)
+    {
+        if(c[i].categoria=="RHM" || c[i].categoria=="RIM")
+        {
+            categoriaInterestadual[2].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+        }
+
+        if(a==2)
+        {
+            break;
+        }
+    }
+    categoriaInterestadual[2].quantidade_inscritos=soma;
+    categoriaInterestadual[2].quantidade_categorias=a;
+
+
+    //criando Rating D
+    categoriaInterestadual[3].categoria=" RATING D";
+    a=0;
+    soma=0;
+    for(int i=n-1; i>=0; i--)
+    {
+        if(c[i].categoria=="RJM" || c[i].categoria=="RLM")
+        {
+            categoriaInterestadual[3].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+        }
+
+        if(a==2)
+        {
+            break;
+        }
+    }
+    categoriaInterestadual[3].quantidade_inscritos=soma;
+    categoriaInterestadual[3].quantidade_categorias=a;
+
+    //criando Rating E
+    categoriaInterestadual[4].categoria=" RATING E";
+    a=0;
+    soma=0;
+    for(int i=n-1; i>=0; i--)
+    {
+        if(c[i].categoria=="RMM" || c[i].categoria=="RNM")
+        {
+            categoriaInterestadual[4].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+        }
+
+        if(a==2)
+        {
+            break;
+        }
+    }
+    categoriaInterestadual[4].quantidade_inscritos=soma;
+    categoriaInterestadual[4].quantidade_categorias=a;
+
+
+    //criando Rating F
+    categoriaInterestadual[5].categoria=" RATING F";
+    soma=0;
+    for(int i=0; i<=cont; i++)
+    {
+        if( (inscrito[i].ranking!="PRE MIRIM (MAS)" && inscrito[i].ranking!="SUPER PRE MIRIM (MAS)" && inscrito[i].ranking!="MIRIM (MAS)") && inscrito[i].rating=="ROM" && inscrito[i].participaRAT =="SIM")
+        {
+            soma=soma+1;
+        }
+    }
+    if(soma>0)
+    {
+        categoriaInterestadual[5].categoria_cbtm[0].categoria="ROM";
+        categoriaInterestadual[5].quantidade_categorias=1;
+    }else
+    {
+        categoriaInterestadual[5].quantidade_categorias=0;
+    }
+    categoriaInterestadual[5].quantidade_inscritos=soma;
+
+    //criando Rating G
+    categoriaInterestadual[6].categoria=" RATING G";
+    soma=0;
+    for(int i=0; i<=cont; i++)
+    {
+        if((inscrito[i].ranking=="SUPER PRE MIRIM (MAS)" || inscrito[i].ranking=="PRE MIRIM (MAS)" || inscrito[i].ranking=="MIRIM (MAS)") && inscrito[i].rating=="ROM" && inscrito[i].participaRAT =="SIM")
+        {
+            soma=soma+1;
+        }
+    }
+    if(soma>0)
+    {
+        categoriaInterestadual[6].categoria_cbtm[0].categoria="ROM";
+        categoriaInterestadual[6].quantidade_categorias=1;
+    }else
+    {
+        categoriaInterestadual[6].quantidade_categorias=0;
+    }
+    categoriaInterestadual[6].quantidade_inscritos=soma;
+
+}
+
+void listarCategoriasFpotm(CategoriasFpotm c[])
+{
+     cout<<endl<<"categorias do estadual:"<<endl;
+     int soma=0;
+    for(int i=0; i<7; i++)
+    {
+        if(c[i].quantidade_inscritos>0)
+        {
+            cout<<"==="<<c[i].categoria<<"==="<<endl;
+            cout<<"Numero de inscritos:"<<c[i].quantidade_inscritos<<endl;
+            soma+=c[i].quantidade_inscritos;
+        }
+    }
+
+    cout<<"total: "<< soma<< " inscrito(s)."<<endl;
+}
+
+
+
+
+
