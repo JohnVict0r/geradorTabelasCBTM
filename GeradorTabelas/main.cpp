@@ -68,6 +68,7 @@ struct AtletasCategorias
 
 void detalharInscrito(Inscritos i);
 int contarCategorias(Inscritos inscrito[], Categorias c[],int n);
+void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
 void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont);
 void listarCategoriasFpotm(CategoriasFpotm c[]);
@@ -143,15 +144,12 @@ int main()
 
 
 
-    cout<<"---RELATÓRIO DE INSCRITOS---"<<endl;
-
-    relatorioInscritos(inscrito,c,cont,qt-1);
-
-
+    contarInscritos(inscrito,c,cont,qt-1);
+    //relatorioInscritos(inscrito,c,cont,qt-1);
     criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt-1);
 
-    cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
-    listarCategoriasFpotm(categoriaInterstadual);
+    //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
+    //listarCategoriasFpotm(categoriaInterstadual);
 
     cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
     separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt-1);
@@ -237,6 +235,33 @@ int contarCategorias(Inscritos inscrito[], Categorias c[],int n)
 
 }
 
+void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
+{
+    /*
+    * conta os inscritos
+    */
+
+    int a=0;
+    for(int j=0; j<=n; j++)
+    {
+        a=0;
+        for(int i=1; i<=qt; i++)
+        {
+            if(inscrito[i].ranking==c[j].categoria)
+            {
+                a++;
+
+            }
+            if(inscrito[i].rating==c[j].categoria && inscrito[i].participaRAT=="SIM")
+            {
+                a++;
+
+            }
+        }
+        c[j].quantidade_inscritos=a;
+    }
+}
+
 
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 {
@@ -244,29 +269,26 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
     * emite o relatório dos inscritos por categoria
     */
 
-    int a=0;
     for(int j=0; j<=n; j++)
     {
-        a=0;
         cout<<"==="<<c[j].categoria<<"==="<<endl;
         for(int i=1; i<=qt; i++)
         {
             if(inscrito[i].ranking==c[j].categoria)
             {
-                a++;
+
                 cout<<"atleta: "<<inscrito[i].clube<<" | "<<inscrito[i].atleta_nome<<" | pontos:"<<inscrito[i].ratingP<<endl;
 
             }
             if(inscrito[i].rating==c[j].categoria && inscrito[i].participaRAT=="SIM")
             {
-                a++;
+
                 cout<<"atleta: "<<inscrito[i].clube<<" | "<<inscrito[i].atleta_nome<<" | pontos:"<<inscrito[i].ratingP <<" | Ranking:"<<inscrito[i].ranking<<endl;
 
             }
 
 
         }
-        c[j].quantidade_inscritos=a;
         cout<<c[j].quantidade_inscritos<<" atleta(s)";
         cout<<endl<<endl;
     }
@@ -305,7 +327,6 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
             categoriaInterestadual[0].categoria_cbtm[a]=c[i];
             soma=soma+c[i].quantidade_inscritos;
             a++;
-            cout<<"criando rating A"<<endl;
 
             if(a==5)
             {
@@ -468,6 +489,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
     int cont=0;
     for(int i=0;i<t;i++)
     {
+        //if(c[i].quantidade_inscritos==0) continue;
         cout<<"atletas da categoria: "<<c[i].categoria<<endl;
         cont=0;
         for(int j=0;j<c[i].quantidade_categorias;j++)
