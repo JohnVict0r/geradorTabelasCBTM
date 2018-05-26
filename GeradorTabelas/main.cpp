@@ -1,3 +1,11 @@
+/*
+* Autor: John Victor ALves Luiz
+* Desenvolvido em: Maio de 2018
+* Função: Gerar grupos aleatórios para a competições da Federação potiguar de
+*         tênis de mesa. Utilizando o .CSV da relação de inscritos do site da
+*         cbtm.org.br
+*/
+
 #include <iostream>
 #include <cstring>
 #include <fstream>
