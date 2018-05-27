@@ -489,7 +489,8 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
     int cont=0;
     for(int i=0;i<t;i++)
     {
-        //if(c[i].quantidade_inscritos==0) continue;
+        if(c[i].quantidade_inscritos==0) continue;
+        //testando erro de no fast forward :)
         cout<<"atletas da categoria: "<<c[i].categoria<<endl;
         cont=0;
         for(int j=0;j<c[i].quantidade_categorias;j++)
