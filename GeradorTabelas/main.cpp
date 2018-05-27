@@ -533,7 +533,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
 /*
 void CriarGruposclassificatorios( AtletasCategorias atleta )
 {
-
+    fazer amanha
 }
 */
 
