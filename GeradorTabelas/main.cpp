@@ -70,6 +70,7 @@ struct Grupo
     CategoriasFpotm categoria;
     Confronto confrontos[20];
     int quantidade_confrontos;
+    int quantidade_atletas;
 
 };
 
@@ -177,6 +178,8 @@ int main()
     criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt-1);
 
     //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
+
+
     //listarCategoriasFpotm(categoriaInterstadual);
 
     cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
@@ -594,6 +597,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
             {
                 gp[j].letra=l[letra];
                 gp[j].categoria=atleta[i].categoria_fpotm;
+                gp[j].quantidade_atletas=3;
 
                 cout<<"Grupo "<< l[letra]<<endl;
 
@@ -617,6 +621,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                     gp[a].atletas[3]=atleta[i].atleta[qt_atletas];
                     cout<<"atleta:"<<atleta[i].atleta[qt_atletas].atleta_nome<<endl;
                     qt_atletas--;
+                    gp[a].quantidade_atletas++;
 
                 }
             }
@@ -627,6 +632,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
         {
             gp[0].letra=l[letra];
             gp[0].categoria=atleta[i].categoria_fpotm;
+            gp[0].quantidade_atletas=r;
 
             cout<<"Grupo "<< l[letra]<<endl;
             for(int a=0; a<r; a++)
@@ -643,6 +649,8 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 
 }
+
+//Criar função para ordenar atleta por pontos dentro dos grupos
 
 
 
