@@ -99,15 +99,17 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
 void listarCategoriasFpotm(CategoriasFpotm c[]);
 void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt);
 void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[]);
+void criarConfrontos(Grupo gp[], int t);
+void listarConfrontos(Grupo gp[], int t);
 
 
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    char nomes[MAX_N][MAX_TXT];
-    char arquivo[MAX_TXT];
-    int n;
+    //char nomes[MAX_N][MAX_TXT];
+    //char arquivo[MAX_TXT];
+    //int n;
     int qt=0;
 
     Inscritos inscrito[100];
@@ -523,7 +525,8 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
     for(int i=0; i<t; i++)
     {
         atletaCategoria[i].categoria_fpotm.categoria=c[i].categoria;
-        if(c[i].quantidade_inscritos==0) continue;
+        if(c[i].quantidade_inscritos==0)
+            continue;
         cout<<"atletas da categoria: "<<c[i].categoria<<endl;
 
         cont=0;
@@ -605,12 +608,13 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                 {
                     gp[j].atletas[k]=atleta[i].atleta[qt_atletas];
 
-                    cout<<"atleta:"<<atleta[i].atleta[qt_atletas].atleta_nome<<endl;
+                    cout<<"atleta:"<<gp[j].atletas[k].atleta_nome<<endl;
 
                     qt_atletas--;
 
                 }
                 letra++;
+
 
             }
             if(r>0)
@@ -625,6 +629,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
                 }
             }
+
 
 
         }
@@ -644,6 +649,10 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
             }
 
         }
+
+        criarConfrontos(gp, qt_grupos);
+        listarConfrontos(gp,qt_grupos);
+
         cout<<endl;
     }
 
@@ -652,5 +661,87 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 //Criar função para ordenar atleta por pontos dentro dos grupos.;
 
+void criarConfrontos(Grupo gp[], int t)
+{
+    cout<<"criando os confrontos: "<<endl;
+
+    int n;
+
+    for(int j=0; j<t; j++)
+    {
+        n=gp[j].quantidade_atletas;
+
+        if(n==2)
+        {
+            gp[j].confrontos[0].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[0].atleta02= gp[j].atletas[1];
+
+        }else if(n==3)
+        {
+            gp[j].confrontos[0].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[0].atleta02= gp[j].atletas[2];
+
+            gp[j].confrontos[1].atleta01= gp[j].atletas[1];
+            gp[j].confrontos[1].atleta02= gp[j].atletas[2];
+
+            gp[j].confrontos[2].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[2].atleta02= gp[j].atletas[1];
+            gp[j].quantidade_confrontos=3;
+
+        }
+        else if(n=4)
+        {
+
+            gp[j].confrontos[0].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[0].atleta02= gp[j].atletas[3];
+
+            gp[j].confrontos[1].atleta01= gp[j].atletas[1];
+            gp[j].confrontos[1].atleta02= gp[j].atletas[2];
+
+            gp[j].confrontos[2].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[2].atleta02= gp[j].atletas[2];
+
+            gp[j].confrontos[3].atleta01= gp[j].atletas[1];
+            gp[j].confrontos[3].atleta02= gp[j].atletas[3];
+
+            gp[j].confrontos[4].atleta01= gp[j].atletas[0];
+            gp[j].confrontos[4].atleta02= gp[j].atletas[1];
+
+            gp[j].confrontos[5].atleta01= gp[j].atletas[2];
+            gp[j].confrontos[5].atleta02= gp[j].atletas[3];
 
 
+
+            gp[j].quantidade_confrontos=6;
+
+        }
+        else if(n=5)
+        {
+
+        }
+        else if(n=6)
+        {
+
+        }
+
+
+    }
+
+
+
+}
+
+void listarConfrontos(Grupo gp[],int t)
+{
+    for(int j=0; j<t; j++)
+    {
+
+        for(int i=0; i<gp[j].quantidade_confrontos; i++)
+        {
+
+            cout<< gp[j].letra <<" | " << gp[j].confrontos[i].atleta01.atleta_nome <<" x "<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
+
+
+        }
+    }
+}
