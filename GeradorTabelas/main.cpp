@@ -650,7 +650,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 }
 
-//Criar função para ordenar atleta por pontos dentro dos grupos
+//Criar função para ordenar atleta por pontos dentro dos grupos.;
 
 
 
