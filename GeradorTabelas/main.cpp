@@ -10,6 +10,8 @@
 #include <cstring>
 #include <fstream>
 #include <locale.h>
+
+#include <cstdlib>
 //#include <array>
 
 
@@ -28,6 +30,7 @@ struct Inscritos
     string ratingP;
     string participaRAT;
     string status;
+    int pontos;
 };
 
 //categorias gerais da CBTM
@@ -55,11 +58,20 @@ struct AtletasCategorias
 
 };
 
+struct Horario
+{
+    int hora;
+    int minutos;
+};
+
+
 struct Confronto
 {
+    int id_confronto;
     Inscritos atleta01;
     Inscritos atleta02;
     string fase;
+    Horario horario; //implementar depois os horarios que ocorrerão os jogos
 
 };
 
@@ -71,6 +83,14 @@ struct Grupo
     Confronto confrontos[20];
     int quantidade_confrontos;
     int quantidade_atletas;
+
+};
+
+struct Eliminatorias
+{
+    CategoriasFpotm categoria;
+    Confronto confrontos[16];
+    int quantidade_confrontos;
 
 };
 
@@ -154,7 +174,12 @@ int main()
 
                 inscrito[qt]=t;
 
-                //detalharInscrito(inscrito[qt]);
+
+                //inscrito[qt].pontos= atoi(inscrito[qt].ratingP);
+                /*
+                * olha professor, aqui ele não aceita string como parametro para converter.
+                */
+
 
                 qt++;
 
