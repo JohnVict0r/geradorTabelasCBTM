@@ -745,7 +745,7 @@ void listarConfrontos(Grupo gp[],int t)
 
             cout<< gp[j].letra <<" | " << gp[j].confrontos[i].atleta01.atleta_nome <<" x "<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
 
-
+////
         }
     }
 }
