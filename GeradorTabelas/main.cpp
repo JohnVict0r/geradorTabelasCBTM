@@ -10,6 +10,8 @@
 #include <cstring>
 #include <fstream>
 #include <locale.h>
+#include <string>
+#include <sstream>
 
 #include <cstdlib>
 //#include <array>
@@ -174,12 +176,15 @@ int main()
 
                 inscrito[qt]=t;
 
-
-                //inscrito[qt].pontos= atoi(inscrito[qt].ratingP);
+                //stringstream ss(inscrito[qt].ratingP);
+                //ss >> inscrito[qt].pontos;
                 /*
                 * olha professor, aqui ele não aceita string como parametro para converter.
                 */
 
+                inscrito[qt].pontos = atoi(inscrito[qt].ratingP.c_str());
+
+                //cout<< inscrito[qt].pontos <<endl;
 
                 qt++;
 
