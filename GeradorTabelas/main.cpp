@@ -678,6 +678,8 @@ void criarConfrontos(Grupo gp[], int t)
             gp[j].confrontos[0].atleta01= gp[j].atletas[0];
             gp[j].confrontos[0].atleta02= gp[j].atletas[1];
 
+            gp[j].quantidade_confrontos=1;
+
         }
         else if(n==3)
         {
