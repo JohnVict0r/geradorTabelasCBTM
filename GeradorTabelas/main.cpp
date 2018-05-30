@@ -86,7 +86,7 @@ struct Grupo
 
 
 //QUANTIDADE É A SOMA DE RATING E RANKINGS
-int t= QUANTIDADE_RATINGS_MASCULINO_FPOTM; // FALTA OS RANKINGS E O RATING FEMININO;
+int total= QUANTIDADE_RATINGS_MASCULINO_FPOTM + QUANTIDADE_RATINGS_FEMININO_FPOTM; // FALTA OS RANKINGS E O RATING FEMININO;
 //variavel global
 
 
@@ -498,7 +498,97 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
         categoriaInterestadual[6].quantidade_categorias=0;
     }
     categoriaInterestadual[6].quantidade_inscritos=soma;
+    //Categorias Femininas
 
+    //criando Rating A
+
+    categoriaInterestadual[7].categoria ="RATING A (FEM)";
+    a=0;
+    soma=0;
+    for(int i=n; i>=0; i--)
+    {
+        if(c[i].categoria=="RAF" || c[i].categoria=="RBF" || c[i].categoria=="RCF" || c[i].categoria=="RDF" || c[i].categoria=="REF")
+        {
+            categoriaInterestadual[7].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+
+            if(a==5)
+            {
+                break;
+            }
+        }
+    }
+    categoriaInterestadual[7].quantidade_inscritos=soma;
+    categoriaInterestadual[7].quantidade_categorias=a;
+
+
+    //criando Rating B
+
+    categoriaInterestadual[8].categoria = "RATING B (FEM)";
+    a=0;
+    soma=0;
+    for(int i=n; i>=0; i--)
+    {
+        if(c[i].categoria=="RFF"||c[i].categoria=="RGF"||c[i].categoria=="RHF")
+        {
+            categoriaInterestadual[8].categoria_cbtm[a]=c[i];
+            soma=soma+c[i].quantidade_inscritos;
+            a++;
+
+            if(a==3)
+            {
+                break;
+            }
+        }
+    }
+    categoriaInterestadual[8].quantidade_inscritos=soma;
+    categoriaInterestadual[8].quantidade_categorias=a;
+
+    //criando Rating C
+
+    categoriaInterestadual[9].categoria="RATING C (FEM)";
+    soma=0;
+    for(int i=0; i<=cont; i++)
+    {
+        if((((inscrito[i].ranking != "SUPER PRE MIRIM (FEM)"&&inscrito[i].ranking != "PRE MIRIM (FEM)"&&inscrito[i].ranking!="MIRIM (FEM)")&&inscrito[i].rating=="RJF"&&inscrito[i].participaRAT=="SIM"))||(inscrito[i].rating=="RIF"&&inscrito[i].participaRAT=="SIM"))
+        {
+            soma=soma+1;
+        }
+    }
+    if(soma>0)
+    {
+        categoriaInterestadual[9].categoria_cbtm[0].categoria="RIF";
+        categoriaInterestadual[9].categoria_cbtm[1].categoria="RJF";
+        categoriaInterestadual[9].quantidade_categorias=2;
+    }
+    else
+    {
+        categoriaInterestadual[9].quantidade_categorias=0;
+    }
+    categoriaInterestadual[9].quantidade_inscritos=soma;
+
+    //criando Rating D
+
+    categoriaInterestadual[10].categoria="RATING D (FEM)";
+    soma=0;
+    for(int i=0; i<=cont; i++)
+    {
+        if((inscrito[i].ranking == "SUPER PRE MIRIM (FEM)" || inscrito[i].ranking == "PRE MIRIM (FEM)" || inscrito[i].ranking == "MIRIM (FEM)")&&inscrito[i].rating=="RJF"&&inscrito[i].participaRAT=="SIM")
+        {
+            soma=soma+1;
+        }
+    }
+    if(soma>0)
+    {
+        categoriaInterestadual[10].categoria_cbtm[0].categoria="RJF";
+        categoriaInterestadual[10].quantidade_categorias=1;
+    }
+    else
+    {
+        categoriaInterestadual[10].quantidade_categorias=0;
+    }
+    categoriaInterestadual[10].quantidade_inscritos=soma;
 }
 
 void listarCategoriasFpotm(CategoriasFpotm c[])
@@ -522,7 +612,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
 {
 
     int cont=0;
-    for(int i=0; i<t; i++)
+    for(int i=0; i<total; i++)
     {
         atletaCategoria[i].categoria_fpotm.categoria=c[i].categoria;
         if(c[i].quantidade_inscritos==0)
@@ -554,9 +644,33 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                     }
                     else if(c[i].categoria!="RATING F (MAS)" &&  c[i].categoria!="RATING G (MAS)" )
                     {
-                        cont++;
-                        atletaCategoria[i].atleta[cont]=atleta[k];
-                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                        if(c[i].categoria=="RATING A (FEM)"||c[i].categoria=="RATING B (FEM)"||c[i].categoria=="RATING C (FEM)"||c[i].categoria=="RATING D (FEM)")
+                        {
+                            if(c[i].categoria=="RATING C (FEM)"&& atleta[k].ranking!="SUPER PRE MIRIM (FEM)" && atleta[k].ranking!="PRE MIRIM (FEM)" && atleta[k].ranking!="MIRIM (FEM)")
+                            {
+                                cont++;
+                                atletaCategoria[i].atleta[cont]=atleta[k];
+                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                            }
+                            else if(c[i].categoria=="RATING D (FEM)"&&(atleta[k].ranking=="SUPER PRE MIRIM (FEM)" || atleta[k].ranking=="PRE MIRIM (FEM)" || atleta[k].ranking=="MIRIM (FEM)"))
+                            {
+                                cont++;
+                                atletaCategoria[i].atleta[cont]=atleta[k];
+                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                            }
+                            else if(c[i].categoria!="RATING C (FEM)"&&c[i].categoria!="RATING D (FEM)")
+                            {
+                                cont++;
+                                atletaCategoria[i].atleta[cont]=atleta[k];
+                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                            }
+                        }
+                        else
+                        {
+                            cont++;
+                            atletaCategoria[i].atleta[cont]=atleta[k];
+                            cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                        }
 
                     }
 
@@ -583,7 +697,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
     //implementar a função para embaralhar os atletas
 
 
-    for(int i=0; i <t; i++)
+    for(int i=0; i <total; i++)
     {
         cout<<"categoria: "<<atleta[i].categoria_fpotm.categoria<< " com "<< atleta[i].categoria_fpotm.quantidade_inscritos<<" inscrito(s)"<<endl;
 
@@ -673,7 +787,13 @@ void criarConfrontos(Grupo gp[], int t)
     {
         n=gp[j].quantidade_atletas;
 
-        if(n==2)
+        if (n==1)
+        {
+            //gp[j].confrontos[0].atleta01= gp[j].atletas[0];
+
+            gp[j].quantidade_confrontos=0;
+
+        }else if(n==2)
         {
             gp[j].confrontos[0].atleta01= gp[j].atletas[0];
             gp[j].confrontos[0].atleta02= gp[j].atletas[1];
