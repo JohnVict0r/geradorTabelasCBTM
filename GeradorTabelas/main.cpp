@@ -122,6 +122,8 @@ void listarCategoriasFpotm(CategoriasFpotm c[]);
 void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt);
 void ordenarAtletasCategoriaCrescente(AtletasCategorias atleta[]);
 void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[]);
+void ordenarAtletasGrupoCrescente(Grupo gp[], int t);
+void listarGrupo(Grupo gp[], int t);
 void criarConfrontos(Grupo gp[], int t);
 void listarConfrontos(Grupo gp[], int t);
 
@@ -726,14 +728,14 @@ void ordenarAtletasCategoriaCrescente(AtletasCategorias atleta[])
 
 
 
-    for(int i=0; i<total;i++)
+    for(int i=0; i<total; i++)
     {
 
         aux.atleta[0].pontos=-1;
 
-        for(int j=0; j<=atleta[i].categoria_fpotm.quantidade_inscritos;j++)
+        for(int j=0; j<=atleta[i].categoria_fpotm.quantidade_inscritos; j++)
         {
-            for(int k=0; k<atleta[i].categoria_fpotm.quantidade_inscritos;k++)
+            for(int k=0; k<atleta[i].categoria_fpotm.quantidade_inscritos; k++)
             {
                 if(atleta[i].atleta[k].pontos>=atleta[i].atleta[k+1].pontos)
                 {
@@ -792,11 +794,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                 gp[j].categoria=atleta[i].categoria_fpotm;
                 gp[j].quantidade_atletas=numAtletaPorGrupo;
 
-                cout<<"Grupo "<< l[letra]<<endl;
-
                 gp[j].atletas[0]=atleta[i].atleta[qt_atletas];
-
-                cout<<"atleta:"<<gp[j].atletas[0].atleta_nome<<"| pontos:"<<gp[j].atletas[0].pontos<<endl;
 
                 qt_atletas--;
                 letra++;
@@ -813,12 +811,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                     gp[j].categoria=atleta[i].categoria_fpotm;
                     gp[j].quantidade_atletas=numAtletaPorGrupo;
 
-                    cout<<"Grupo "<< l[letra]<<endl;
-
                     gp[j].atletas[k]=atleta[i].atleta[a];
-
-                    cout<<"atleta:"<<gp[j].atletas[k].atleta_nome<<"| pontos:"<<gp[j].atletas[k].pontos<<endl;
-
 
                     a++;
                     letra++;
@@ -834,9 +827,8 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
             if(r==1)
             {
 
-                cout<<"(Acrescentando) Grupo "<< l[0]<<endl;
+
                 gp[0].atletas[3]=atleta[i].atleta[qt_atletas];
-                cout<<"atleta:"<<gp[0].atletas[3].atleta_nome<<"| pontos:"<<gp[0].atletas[3].pontos<<endl;
 
                 qt_atletas--;
                 gp[0].quantidade_atletas++;
@@ -849,9 +841,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                 {
                     for(int a=r-1; a>=0; a--)
                     {
-                        cout<<"(Acrescentando) Grupo "<< l[a]<<endl;
                         gp[a].atletas[3]=atleta[i].atleta[qt_atletas];
-                        cout<<"atleta:"<<gp[a].atletas[3].atleta_nome<<"| pontos:"<<gp[a].atletas[3].pontos<<endl;
 
                         qt_atletas--;
                         gp[a].quantidade_atletas++;
@@ -860,14 +850,11 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
                 }
                 else
                 {
-                    cout<<" Grupo "<< l[letra]<<endl;
                     gp[qt_grupos].atletas[0]=atleta[i].atleta[qt_atletas];
-                    cout<<"atleta:"<<gp[qt_grupos].atletas[0].atleta_nome<<"| pontos:"<<gp[qt_grupos].atletas[0].pontos<<endl;
 
                     qt_atletas--;
 
                     gp[qt_grupos].atletas[1]=atleta[i].atleta[qt_atletas];
-                    cout<<"atleta:"<<gp[qt_grupos].atletas[1].atleta_nome<<"| pontos:"<<gp[qt_grupos].atletas[1].pontos<<endl;
 
                     qt_atletas--;
 
@@ -887,19 +874,17 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
             gp[0].quantidade_atletas=r;
             qt_grupos=1;
 
-            cout<<"Grupo "<< l[letra]<<endl;
             for(int a=0; a<r; a++)
             {
                 gp[0].atletas[a]=atleta[i].atleta[qt_atletas];
-                cout<<"atleta:"<<gp[0].atletas[a].atleta_nome<<"| pontos:"<<gp[0].atletas[a].pontos<<endl;
 
                 qt_atletas--;
-
-
             }
 
         }
 
+        ordenarAtletasGrupoCrescente(gp,qt_grupos);
+        listarGrupo(gp,qt_grupos);
         criarConfrontos(gp, qt_grupos);
         listarConfrontos(gp,qt_grupos);
         if(atleta[i].categoria_fpotm.quantidade_inscritos==0)
@@ -912,11 +897,52 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 }
 
-//Criar função para ordenar atleta por pontos dentro dos grupos.;
+void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
+{
+    Grupo aux;
+
+
+    for(int i=0; i<t; i++)
+    {
+        aux.atletas[0].pontos=-1;
+
+
+        for(int j=0; j<gp[i].quantidade_atletas-1; j++)
+        {
+            for(int k=0; k<gp[i].quantidade_atletas-1; k++)
+            {
+                if(gp[i].atletas[k].pontos<=gp[i].atletas[k+1].pontos)
+                {
+                    aux.atletas[0]=gp[i].atletas[k];
+                    gp[i].atletas[k]=gp[i].atletas[k+1];
+                    gp[i].atletas[k+1]= aux.atletas[0];
+
+                }
+
+
+            }
+        }
+
+
+
+    }
+}
+void listarGrupo(Grupo gp[], int t)
+{
+    for(int i=0; i<t; i++)
+    {
+        cout<<"Grupo "<<gp[i].letra<<endl;
+        for(int j=0; j<=gp[i].quantidade_atletas-1; j++)
+        {
+                cout<<"atleta:"<<gp[i].atletas[j].atleta_nome<<"| pontos:"<<gp[i].atletas[j].pontos<<endl;
+
+        }
+    }
+}
 
 void criarConfrontos(Grupo gp[], int t)
 {
-    cout<<"criando os confrontos... "<<endl;
+    cout<<endl<<"criando os confrontos... "<<endl;
 
     int n;
 
@@ -1003,11 +1029,12 @@ void listarConfrontos(Grupo gp[],int t)
 {
     for(int j=0; j<t; j++)
     {
-
+        if(gp[j].quantidade_confrontos==0)continue;
+        cout<<endl<<"Confrontos do Grupo: "<<gp[j].letra<<endl;
         for(int i=0; i<gp[j].quantidade_confrontos; i++)
         {
 
-            cout<<" | "<< gp[j].letra <<" | " << gp[j].confrontos[i].atleta01.atleta_nome <<" x "<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
+            cout<<" " << gp[j].confrontos[i].atleta01.atleta_nome <<" x "<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
 
 ////
         }
