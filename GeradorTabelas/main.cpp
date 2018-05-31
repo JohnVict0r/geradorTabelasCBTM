@@ -1,10 +1,12 @@
-/*
-* Autor: John Victor ALves Luiz
-* Desenvolvido em: Maio de 2018
-* Função: Gerar grupos aleatórios para a competições da Federação potiguar de
-*         tênis de mesa. Utilizando o .CSV da relação de inscritos do site da
-*         cbtm.org.br
-*/
+/** \brief
+ * purpose:Gerar grupos da fase classificatorios e seus respectivos confrontos.
+           para as competições que utilizam as inscrições realizada na cbtm.org.br
+           Para isso, este projeto requer que o arquivo .csv esteja com o nome "inscritos.csv"
+ *
+ * \author John Victor Alves Luiz
+ * \version 1.0 31/05/2018
+ */
+
 
 #include <iostream>
 #include <cstring>
@@ -12,11 +14,7 @@
 #include <locale.h>
 #include <string>
 #include <sstream>
-
 #include <cstdlib>
-//#include <array>
-
-
 
 using namespace std;
 
@@ -42,7 +40,7 @@ struct Categorias
     int quantidade_inscritos;
 };
 
-// É necessario normalizar as categorias da CBTM para a categorias disponíveis do evento da FPOTM
+// É necessario normalizar as categorias da CBTM para a categorias disponíveis do evento
 struct CategoriasFpotm
 {
     string categoria;
@@ -106,10 +104,10 @@ struct Eliminatorias
 //RATINGS A à D
 #define QUANTIDADE_RATINGS_FEMININO_FPOTM 4
 
-
+//variavel global
 //QUANTIDADE É A SOMA DE RATING E RANKINGS
 int total= QUANTIDADE_RATINGS_MASCULINO_FPOTM + QUANTIDADE_RATINGS_FEMININO_FPOTM; // FALTA OS RANKINGS E O RATING FEMININO;
-//variavel global
+
 
 
 
@@ -132,9 +130,6 @@ int main()
 {
     setlocale(LC_ALL, "Portuguese");
 
-    //char nomes[MAX_N][MAX_TXT];
-    //char arquivo[MAX_TXT];
-    //int n;
     int qt=0;
 
     Inscritos inscrito[100];
@@ -170,24 +165,18 @@ int main()
             getline(ip,t.status,'\n');
             if(t.ratingP=="" || t.status!="Inscrito")
             {
-                //cout<<"!!!TECNICO!!!";
-                //não pegar quando for técnico e tecnico não possuem pontos de rating no momento;
-                //não pegar os pre-inscritos;
+                /*cout<<"!!!TECNICO!!!";
+                 *não pegar quando for técnico e tecnico não possuem pontos de rating no momento;
+                 *não pegar os pre-inscritos;
+                 */
             }
             else
             {
 
                 inscrito[qt]=t;
-
+                inscrito[qt].pontos = atoi(inscrito[qt].ratingP.c_str());
                 //stringstream ss(inscrito[qt].ratingP);
                 //ss >> inscrito[qt].pontos;
-                /*
-                * olha professor, aqui ele não aceita string como parametro para converter.
-                */
-
-                inscrito[qt].pontos = atoi(inscrito[qt].ratingP.c_str());
-
-                //cout<< inscrito[qt].pontos <<endl;
 
                 qt++;
 
@@ -206,14 +195,11 @@ int main()
 
     int cont=contarCategorias(inscrito,c,qt);
 
-
-
     contarInscritos(inscrito,c,cont,qt);
     //relatorioInscritos(inscrito,c,cont,qt-1);
     criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt);
 
     //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
-
 
     //listarCategoriasFpotm(categoriaInterstadual);
 
@@ -224,11 +210,16 @@ int main()
 
     cout<<"=== Gerar Grupos e confrontos ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
-    separ
 
     return 0;
 }
 
+/** \brief
+ *  Detalhar um inscrito(Atleta)
+ * \param i Inscritos
+ * \return void
+ *
+ */
 void detalharInscrito(Inscritos i)
 {
 
@@ -247,6 +238,14 @@ void detalharInscrito(Inscritos i)
 
 }
 
+/** \brief
+ *  Contar as Categorias diferentes presente no .CSV
+ * \param inscrito[] Inscritos
+ * \param c[] Categorias
+ * \param n int
+ * \return int
+ *
+ */
 int contarCategorias(Inscritos inscrito[], Categorias c[],int n)
 {
     int cont=0;
@@ -305,6 +304,15 @@ int contarCategorias(Inscritos inscrito[], Categorias c[],int n)
 
 }
 
+/** \brief
+ *  Calcular a quantidade de Inscritos do arquivo .CSV
+ * \param inscrito[] Inscritos
+ * \param c[] Categorias
+ * \param n int
+ * \param qt int
+ * \return void
+ *
+ */
 void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 {
     /*
@@ -333,6 +341,15 @@ void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 }
 
 
+/** \brief
+ *  Gerar um Relatório dos Inscritos do arquivo .CSV lido
+ * \param inscrito[] Inscritos
+ * \param c[] Categorias
+ * \param n int
+ * \param qt int
+ * \return void
+ *
+ */
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 {
     /*
@@ -365,9 +382,9 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
 }
 
 
-void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont)
-{
-    /*  RATING DA CBTM                 RATING DA FPOTM
+/** \brief
+ *  Criar as Categorias Disponíveis pelas FPOTM
+ *     RATING DA CBTM                 RATING DA FPOTM
     *    A ao E                              A
     *    F - G                               B
     *    H – I                               C
@@ -376,15 +393,26 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     *    O                                   F
     *    O (PRÉ-MIRIM E MIRIM)               G
     *                   MASCULINO
-    */
+ *
 
-    /*  RATING DA CBTM                 RATING DA FPOTM
+ *     RATING DA CBTM                 RATING DA FPOTM
     *    A ao E                              A
     *    F - G - H                           B
     *    I - J                               C
     *    J (PRÉ-MIRIM E MIRIM)               D
     *                   FEMININO
-    */
+ *
+ * \param categoriaInterestadual[] CategoriasFpotm
+ * \param inscrito[] Inscritos
+ * \param c[] Categorias
+ * \param n int
+ * \param cont int
+ * \return void
+ *
+ */
+void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont)
+{
+
 
     //Criando o Rating A
     categoriaInterestadual[0].categoria="RATING A (MAS)";
@@ -627,6 +655,12 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
     categoriaInterestadual[10].quantidade_inscritos=soma;
 }
 
+/** \brief
+ *  Listar as categorias criadas para a FPOTM
+ * \param c[] CategoriasFpotm
+ * \return void
+ *
+ */
 void listarCategoriasFpotm(CategoriasFpotm c[])
 {
     cout<<endl<<"categorias do estadual:"<<endl;
@@ -644,9 +678,9 @@ void listarCategoriasFpotm(CategoriasFpotm c[])
     cout<<"total: "<< soma<< " inscrito(s)."<<endl;
 }
 
+
 /** \brief
-    ela separa os atletas
- * \see separarAtletasPorCategoriaFpotm();
+ *  separar por categoria com os atletas para entrar na normalização
  * \param atletaCategoria[] AtletasCategorias
  * \param c[] CategoriasFpotm
  * \param atleta[] Inscritos
@@ -734,7 +768,8 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
 
 }
 
-/** \brief Ordenar os atletas pela pontuação da CBTM para que na distribuição dos grupos seja escolhido os cabeça de chave
+/** \brief
+ *   Ordenar os atletas pela pontuação da CBTM para que na distribuição dos grupos seja escolhido os cabeça de chave
  *
  * \param atleta[] AtletasCategorias
  * \return void
@@ -777,6 +812,13 @@ void ordenarAtletasCategoriaCrescente(AtletasCategorias atleta[])
 
 
 
+/** \brief
+ *  Criar os grupos da fase classificatória do evento
+ * \param atleta[] AtletasCategorias
+ * \param gp[] Grupo
+ * \return void
+ *
+ */
 void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 {
     int numAtletaPorGrupo=3;
@@ -918,16 +960,16 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 }
 
-
-void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
-{
-    /** \brief Ordenar os atletas do grupo
-    *
+/** \brief Ordenar os atletas do grupo
+    *   Ordena os atletas do grupo para criar os confrontos em seguida
     * \param gp[] Grupo
     * \param t int
     * \return void
     *
     */
+void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
+{
+
     Grupo aux;
 
 
@@ -1068,6 +1110,13 @@ void criarConfrontos(Grupo gp[], int t)
 
 }
 
+/** \brief
+ *  Função para listar os confrontos dos grupos
+ * \param gp[] Grupo
+ * \param t int
+ * \return void
+ *
+ */
 void listarConfrontos(Grupo gp[],int t)
 {
     for(int j=0; j<t; j++)
