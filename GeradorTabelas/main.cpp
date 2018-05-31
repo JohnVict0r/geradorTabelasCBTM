@@ -3,7 +3,7 @@
            para as competições que utilizam as inscrições realizada na cbtm.org.br
            Para isso, este projeto requer que o arquivo .csv esteja com o nome "inscritos.csv"
  *
- * \author John Victor Alves Luiz
+ * \author JOHN VICTOR ALVES LUIZ & GUILHERME DE MELO CARNEIRO
  * \version 1.0 31/05/2018
  */
 
