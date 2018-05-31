@@ -835,7 +835,10 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
         criarConfrontos(gp, qt_grupos);
         listarConfrontos(gp,qt_grupos);
-
+        if(atleta[i].categoria_fpotm.quantidade_inscritos==0)
+        {
+            cout<<"nao possui inscritos!"<<endl;
+        }
         cout<<endl;
     }
 
@@ -854,10 +857,11 @@ void criarConfrontos(Grupo gp[], int t)
     {
         n=gp[j].quantidade_atletas;
 
-        if (n==1)
+       if (n==1)
         {
             //gp[j].confrontos[0].atleta01= gp[j].atletas[0];
 
+            cout<<"não possui atleta suficiente..."<<endl;
             gp[j].quantidade_confrontos=0;
 
         }
@@ -914,7 +918,11 @@ void criarConfrontos(Grupo gp[], int t)
         else if(n=6)
         {
 
+        }else
+        {
+            cout<<"não possui inscritos!"<<endl;
         }
+
 
 
     }
