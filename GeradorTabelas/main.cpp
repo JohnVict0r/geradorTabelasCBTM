@@ -103,10 +103,14 @@ struct Eliminatorias
 #define QUANTIDADE_RATINGS_MASCULINO_FPOTM 7
 //RATINGS A à D
 #define QUANTIDADE_RATINGS_FEMININO_FPOTM 4
+//RANKINGS MASCULINOS
+#define QUANTIDADE_RANKINGS_MASCULINO 16
+//RANKINGS FEMININOS
+#define QUANTIDADE_RANKINGS_FEMININO 15
 
 //variavel global
 //QUANTIDADE É A SOMA DE RATING E RANKINGS
-int total= QUANTIDADE_RATINGS_MASCULINO_FPOTM + QUANTIDADE_RATINGS_FEMININO_FPOTM; // FALTA OS RANKINGS E O RATING FEMININO;
+int total= QUANTIDADE_RATINGS_MASCULINO_FPOTM + QUANTIDADE_RATINGS_FEMININO_FPOTM + QUANTIDADE_RANKINGS_FEMININO + QUANTIDADE_RANKINGS_FEMININO; // FALTA OS RANKINGS E O RATING FEMININO;
 
 
 
@@ -115,7 +119,8 @@ void detalharInscrito(Inscritos i);
 int contarCategorias(Inscritos inscrito[], Categorias c[],int n);
 void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
 void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt);
-void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont);
+void criarCategoriaFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont);
+void definirCategoriaRanking(CategoriasFpotm &categoriaInterestadual, Inscritos inscrito[], int cont, string nomeCateg);
 void listarCategoriasFpotm(CategoriasFpotm c[]);
 void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt);
 void ordenarAtletasCategoriaCrescente(AtletasCategorias atleta[]);
@@ -135,7 +140,7 @@ int main()
     Inscritos inscrito[100];
     Categorias c[100];
     CategoriasFpotm categoriaInterstadual[100];
-    AtletasCategorias atletaCategoria[20];
+    AtletasCategorias atletaCategoria[50];
 
     Grupo grupos[100];
 
@@ -197,18 +202,18 @@ int main()
 
     contarInscritos(inscrito,c,cont,qt);
     //relatorioInscritos(inscrito,c,cont,qt-1);
-    criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt);
+    criarCategoriaFpotm(categoriaInterstadual,inscrito,c,cont,qt);
 
     //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
 
-    //listarCategoriasFpotm(categoriaInterstadual);
+    listarCategoriasFpotm(categoriaInterstadual);
 
-    cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
+    //cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
     separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt);
 
     ordenarAtletasCategoriaCrescente(atletaCategoria);
 
-    cout<<"=== Gerar Grupos e confrontos ==="<<endl;
+    //cout<<"=== Gerar Grupos e confrontos ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
 
     return 0;
@@ -330,7 +335,7 @@ void contarInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
                 a++;
 
             }
-            if(inscrito[i].rating==c[j].categoria && inscrito[i].participaRAT=="SIM")
+            else if(inscrito[i].rating==c[j].categoria && inscrito[i].participaRAT=="SIM")
             {
                 a++;
 
@@ -410,10 +415,8 @@ void relatorioInscritos(Inscritos inscrito[], Categorias c[], int n, int qt)
  * \return void
  *
  */
-void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont)
+void criarCategoriaFpotm(CategoriasFpotm categoriaInterestadual[], Inscritos inscrito[], Categorias c[],int n,int cont)
 {
-
-
     //Criando o Rating A
     categoriaInterestadual[0].categoria="RATING A (MAS)";
     int a=0;
@@ -653,6 +656,185 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
         categoriaInterestadual[10].quantidade_categorias=0;
     }
     categoriaInterestadual[10].quantidade_inscritos=soma;
+
+    //Criando RANKINGS
+
+    //MASCULINO
+
+    //Criando SUPER PRE MIRIM (MAS)
+    string spmm = "SUPER PRE MIRIM (MAS)";
+    definirCategoriaRanking(categoriaInterestadual[11], inscrito,cont,spmm);
+    //Criando PRE MIRIM (MAS)
+    string pmm = "PRE MIRIM (MAS)";
+    definirCategoriaRanking(categoriaInterestadual[12], inscrito,cont,pmm);
+    //Criando MIRIM (MAS)
+    string mm="MIRIM (MAS)";
+    definirCategoriaRanking(categoriaInterestadual[13], inscrito,cont,mm);
+    //Criando INFANTIL (MAS)
+    string im ="INFANTIL (MAS)";
+    definirCategoriaRanking(categoriaInterestadual[14], inscrito,cont,im);
+    //Criando JUVENIL (MAS)
+    string jm ="JUVENIL (MAS)";
+    definirCategoriaRanking(categoriaInterestadual[15], inscrito,cont,jm);
+    //Criando JUVENTUDE (MAS)
+    definirCategoriaRanking(categoriaInterestadual[16], inscrito,cont,"JUVENTUDE (MAS)");
+    //Criando ABSOLUTO A (MAS)
+    definirCategoriaRanking(categoriaInterestadual[17], inscrito,cont,"ABSOLUTO A (MAS)");
+    //Criando ABSOLUTO B (MAS)
+    definirCategoriaRanking(categoriaInterestadual[18], inscrito,cont,"ABSOLUTO B (MAS)");
+    //Criando ABSOLUTO C (MAS)
+    definirCategoriaRanking(categoriaInterestadual[19], inscrito,cont,"ABSOLUTO C (MAS)");
+    //Criando ABSOLUTO D (MAS)
+    definirCategoriaRanking(categoriaInterestadual[20], inscrito,cont,"ABSOLUTO D (MAS)");
+    //Criando ABSOLUTO E (MAS)
+    definirCategoriaRanking(categoriaInterestadual[21], inscrito,cont,"ABSOLUTO E (MAS)");
+    //Criando SENIOR (MAS)
+    definirCategoriaRanking(categoriaInterestadual[22], inscrito,cont,"SENIOR (MAS)");
+    //Criando VETERANO 4 (MAS)
+    definirCategoriaRanking(categoriaInterestadual[23], inscrito,cont,"VETERANO 4 (MAS)");
+    //Criando VETERANO 5 (MAS)
+    definirCategoriaRanking(categoriaInterestadual[24], inscrito,cont,"VETERANO 5 (MAS)");
+    //Criando VETERANO 6 (MAS)
+    definirCategoriaRanking(categoriaInterestadual[25], inscrito,cont,"VETERANO 6 (MAS)");
+    //Criando VETERANO 7 (MAS)
+    definirCategoriaRanking(categoriaInterestadual[26], inscrito,cont,"VETERANO 7 (MAS)");
+
+
+    //FEMININO
+
+    //Criando SUPER PRE MIRIM (FEM)
+    definirCategoriaRanking(categoriaInterestadual[27], inscrito,cont,"SUPER PRE MIRIM (FEM)");
+    //Criando PRE MIRIM (FEM)
+    definirCategoriaRanking(categoriaInterestadual[28], inscrito,cont,"PRE MIRIM (FEM)");
+    //Criando MIRIM (FEM)
+    definirCategoriaRanking(categoriaInterestadual[29], inscrito,cont,"MIRIM (FEM)");
+    //Criando INFANTIL (FEM)
+    definirCategoriaRanking(categoriaInterestadual[30], inscrito,cont,"INFANTIL (FEM)");
+    //Criando JUVENIL (FEM)
+    definirCategoriaRanking(categoriaInterestadual[31], inscrito,cont,"JUVENIL (FEM)");
+    //Criando JUVENTUDE (FEM)
+    definirCategoriaRanking(categoriaInterestadual[32], inscrito,cont,"JUVENTUDE (FEM)");
+    //Criando ABSOLUTO A (FEM)
+    definirCategoriaRanking(categoriaInterestadual[33], inscrito,cont,"ABSOLUTO A (FEM)");
+    //Criando ABSOLUTO B (FEM)
+    definirCategoriaRanking(categoriaInterestadual[34], inscrito,cont,"ABSOLUTO B (FEM)");
+    //Criando ABSOLUTO C (FEM)
+    definirCategoriaRanking(categoriaInterestadual[35], inscrito,cont,"ABSOLUTO C (FEM)");
+    //Criando ABSOLUTO D (FEM)
+    definirCategoriaRanking(categoriaInterestadual[36], inscrito,cont,"ABSOLUTO D (FEM)");
+    //Criando LADY (FEM)
+    definirCategoriaRanking(categoriaInterestadual[37], inscrito,cont,"LADY (FEM)");
+    //Criando VETERANO 4 (FEM)
+    definirCategoriaRanking(categoriaInterestadual[38], inscrito,cont,"VETERANO 4 (FEM)");
+    //Criando VETERANO 5 (FEM)
+    definirCategoriaRanking(categoriaInterestadual[39], inscrito,cont,"VETERANO 5 (FEM)");
+    //Criando VETERANO 6 (FEM)
+    definirCategoriaRanking(categoriaInterestadual[40], inscrito,cont,"VETERANO 6 (FEM)");
+    //Criando VETERANO 7 (FEM)
+    definirCategoriaRanking(categoriaInterestadual[41], inscrito,cont,"VETERANO 7 (FEM)");
+
+
+//
+//	//MASCULINO
+//
+//	//Criando SUPER MIRIM (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[27], inscrito,cont,"SUPER MIRIM (MAS)");
+//	//Criando SUPER INFANTIL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[28], inscrito,cont,"SUPER INFANTIL (MAS)");
+//	//Criando SUPER JUVENIL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[29], inscrito,cont,"SUPER JUVENIL (MAS)");
+//	//Criando INFANTIL ESPECIAL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[30], inscrito,cont,"INFANTIL ESPECIAL (MAS)");
+//	//Criando SUPER JUVENTUDE (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[31], inscrito,cont,"SUPER JUVENTUDE (MAS)");
+//	//Criando ADULTO (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[32], inscrito,cont,"ADULTO (MAS)");
+//	//Criando VETERANO 45 (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[33], inscrito,cont,"VETERANO 45 (MAS)");
+//	//Criando VETERANO 55 (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[34], inscrito,cont,"VETERANO 55 (MAS)");
+//	//Criando VETERANO 65 (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[35], inscrito,cont,"VETERANO 65 (MAS)");
+//	//Criando ABSOLUTO C (MAS) - B
+//	definirCategoriaRanking(categoriaInterestadual[36], inscrito,cont,"ABSOLUTO C (MAS) - B");
+//	//Criando SENIOR (MAS) - B
+//	definirCategoriaRanking(categoriaInterestadual[37], inscrito,cont,"SENIOR (MAS) - B");
+//	//Criando MIRIM ESPECIAL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[38], inscrito,cont,"MIRIM ESPECIAL (MAS)");
+//	//Criando JUVENIL ESPECIAL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[39], inscrito,cont,"JUVENIL ESPECIAL (MAS)");
+//	//Criando JUVENTUDE ESPECIAL (MAS)
+//	definirCategoriaRanking(categoriaInterestadual[40], inscrito,cont,"JUVENTUDE ESPECIAL (MAS)");
+//	//Criando SENIOR (MAS)-CADEIRANTE
+//	definirCategoriaRanking(categoriaInterestadual[41], inscrito,cont,"SENIOR (MAS)-CADEIRANTE");
+//
+//    //Feminino
+//
+//	//Criando JUVENTUDE ESPECIAL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[57], inscrito,cont,"JUVENTUDE ESPECIAL (FEM)");
+//	//Criando MIRIM (FEM) - B
+//	definirCategoriaRanking(categoriaInterestadual[58], inscrito,cont,"PRE MIRIM (FEM) - B");
+//	//Criando ADULTO (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[59], inscrito,cont,"ADULTO (FEM)");
+//	//Criando MIRIM ESPECIAL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[60], inscrito,cont,"MIRIM ESPECIAL (FEM)");
+//	//Criando INFANTIL (FEM) - B
+//	definirCategoriaRanking(categoriaInterestadual[61], inscrito,cont,"INFANTIL (FEM) - B");
+//	//Criando INFANTIL ESPECIAL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[62], inscrito,cont,"INFANTIL ESPECIAL (FEM)");
+//	//Criando JUVENIL ESPECIAL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[63], inscrito,cont,"JUVENIL ESPECIAL (FEM)");
+//	//Criando VETERANO 45 (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[64], inscrito,cont,"VETERANO 45 (FEM)");
+//	//Criando VETERANO 55 (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[65], inscrito,cont,"VETERANO 55 (FEM)");
+//	//Criando VETERANO 65 (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[66], inscrito,cont,"VETERANO 65 (FEM)");
+//	//Criando SUPER MIRIM (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[67], inscrito,cont,"SUPER MIRIM (FEM)");
+//	//Criando SUPER INFANTIL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[68], inscrito,cont,"SUPER INFANTIL (FEM)");
+//	//Criando SUPER JUVENIL (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[69], inscrito,cont,"SUPER JUVENIL (FEM)");
+//	//Criando SUPER JUVENTUDE (FEM)
+//	definirCategoriaRanking(categoriaInterestadual[70], inscrito,cont,"SUPER JUVENTUDE (FEM)");
+
+}
+
+/** \brief
+ *  Cria a categoria definida pela FPOTM
+ * \param categoriaInterestadual CategoriasFpotm
+ * \param inscrito[] Inscritos
+ * \param cont int
+ * \param nomeCateg string
+ * \return void
+ *
+ */
+void definirCategoriaRanking(CategoriasFpotm &categoriaInterestadual, Inscritos inscrito[], int cont, string nomeCateg)
+{
+    int soma=0;
+
+    categoriaInterestadual.categoria_cbtm[0].categoria=nomeCateg;//correção, faltava
+
+
+    for(int i=0; i<=cont; i++)
+    {
+        if(inscrito[i].ranking==nomeCateg)
+        {
+            soma=soma+1;
+        }
+    }
+    if(soma>=0)
+    {
+        categoriaInterestadual.categoria=nomeCateg;
+        categoriaInterestadual.quantidade_categorias=1;
+    }
+    else
+    {
+        categoriaInterestadual.quantidade_categorias=0;
+    }
+
+    categoriaInterestadual.quantidade_inscritos=soma;
 }
 
 /** \brief
@@ -664,18 +846,31 @@ void criarCategoriaRatingFpotm(CategoriasFpotm categoriaInterestadual[], Inscrit
 void listarCategoriasFpotm(CategoriasFpotm c[])
 {
     cout<<endl<<"categorias do estadual:"<<endl;
-    int soma=0;
-    for(int i=0; i<7; i++)
+    int soma_RAT=0;
+    int soma_RANK=0;
+    for(int i=0; i<total-QUANTIDADE_RANKINGS_FEMININO-QUANTIDADE_RANKINGS_MASCULINO; i++)
     {
         if(c[i].quantidade_inscritos>0)
         {
             cout<<"==="<<c[i].categoria<<"==="<<endl;
             cout<<"Numero de inscritos:"<<c[i].quantidade_inscritos<<endl;
-            soma+=c[i].quantidade_inscritos;
+            soma_RAT+=c[i].quantidade_inscritos;
+
+        }
+    }
+    for(int i=QUANTIDADE_RATINGS_FEMININO_FPOTM + QUANTIDADE_RATINGS_MASCULINO_FPOTM; i<total; i++)
+    {
+        if(c[i].quantidade_inscritos>0)
+        {
+            cout<<"==="<<c[i].categoria<<"==="<<endl;
+            cout<<"Numero de inscritos:"<<c[i].quantidade_inscritos<<endl;
+            soma_RANK+=c[i].quantidade_inscritos;
+
         }
     }
 
-    cout<<"total: "<< soma<< " inscrito(s)."<<endl;
+    cout<<"total Ranking: "<< soma_RANK<< " inscrito(s)."<<endl;
+    cout<<"total Rating: "<< soma_RAT<< " inscrito(s)."<<endl;
 }
 
 
@@ -698,6 +893,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
         atletaCategoria[i].categoria_fpotm.categoria=c[i].categoria;
         if(c[i].quantidade_inscritos==0)
             continue;
+
         cout<<"atletas da categoria: "<<c[i].categoria<<endl;
 
         cont=0;
@@ -705,7 +901,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
         {
             for(int k=0; k<qt; k++)
             {
-                if((c[i].categoria_cbtm[j].categoria==atleta[k].rating && atleta[k].participaRAT=="SIM") || c[i].categoria_cbtm[j].categoria==atleta[k].ranking)
+                if(c[i].categoria_cbtm[j].categoria==atleta[k].rating && atleta[k].participaRAT=="SIM")
                 {
                     //tratando os casos especiais, devido a nao conseguir distinguir apenas pelo rating!
                     if( c[i].categoria=="RATING F (MAS)" && atleta[k].ranking!="SUPER PRE MIRIM (MAS)" && atleta[k].ranking!="PRE MIRIM (MAS)" && atleta[k].ranking!="MIRIM (MAS)")
@@ -723,7 +919,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                         cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
 
                     }
-                    else if(c[i].categoria!="RATING F (MAS)" &&  c[i].categoria!="RATING G (MAS)" )
+                    else if(c[i].categoria!="RATING F (MAS)" &&  c[i].categoria!="RATING G (MAS)")
                     {
                         if(c[i].categoria=="RATING A (FEM)"||c[i].categoria=="RATING B (FEM)"||c[i].categoria=="RATING C (FEM)"||c[i].categoria=="RATING D (FEM)")
                         {
@@ -756,6 +952,13 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                     }
 
                 }
+                else  if(c[i].categoria_cbtm[j].categoria==atleta[k].ranking)
+                {
+                    cont++;
+                    atletaCategoria[i].atleta[cont]=atleta[k];
+                    cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                }
+
 
             }
 
