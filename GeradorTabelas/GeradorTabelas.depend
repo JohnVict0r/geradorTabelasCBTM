@@ -35,3 +35,12 @@
 	<fstream>
 	<locale.h>
 
+1527738457 source:c:\users\john victor\documents\geradorgruposfpotmcbtm\geradortabelascbtm\geradortabelas\main.cpp
+	<iostream>
+	<cstring>
+	<fstream>
+	<locale.h>
+	<string>
+	<sstream>
+	<cstdlib>
+

@@ -201,13 +201,13 @@ int main()
         cout<<"ERRO!";
     }
 
-    int cont=contarCategorias(inscrito,c,qt-1);
+    int cont=contarCategorias(inscrito,c,qt);
 
 
 
-    contarInscritos(inscrito,c,cont,qt-1);
+    contarInscritos(inscrito,c,cont,qt);
     //relatorioInscritos(inscrito,c,cont,qt-1);
-    criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt-1);
+    criarCategoriaRatingFpotm(categoriaInterstadual,inscrito,c,cont,qt);
 
     //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
 
@@ -215,7 +215,7 @@ int main()
     //listarCategoriasFpotm(categoriaInterstadual);
 
     cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
-    separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt-1);
+    separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt);
 
     cout<<"=== 'Sorteio' ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
