@@ -224,6 +224,7 @@ int main()
 
     cout<<"=== Gerar Grupos e confrontos ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
+    separ
 
     return 0;
 }
@@ -643,6 +644,17 @@ void listarCategoriasFpotm(CategoriasFpotm c[])
     cout<<"total: "<< soma<< " inscrito(s)."<<endl;
 }
 
+/** \brief
+    ela separa os atletas
+ * \see separarAtletasPorCategoriaFpotm();
+ * \param atletaCategoria[] AtletasCategorias
+ * \param c[] CategoriasFpotm
+ * \param atleta[] Inscritos
+ * \param n int
+ * \param qt int
+ * \return void
+ *
+ */
 void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], CategoriasFpotm c[], Inscritos atleta[], int n, int qt)
 {
 
@@ -722,8 +734,17 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
 
 }
 
+/** \brief Ordenar os atletas pela pontuação da CBTM para que na distribuição dos grupos seja escolhido os cabeça de chave
+ *
+ * \param atleta[] AtletasCategorias
+ * \return void
+ *
+ */
 void ordenarAtletasCategoriaCrescente(AtletasCategorias atleta[])
 {
+
+
+
     AtletasCategorias aux;
 
 
@@ -897,8 +918,16 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
 }
 
+
 void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
 {
+    /** \brief Ordenar os atletas do grupo
+    *
+    * \param gp[] Grupo
+    * \param t int
+    * \return void
+    *
+    */
     Grupo aux;
 
 
@@ -927,6 +956,13 @@ void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
 
     }
 }
+/** \brief listar os atletas do grupo
+ *
+ * \param gp[] Grupo
+ * \param t int
+ * \return void
+ *
+ */
 void listarGrupo(Grupo gp[], int t)
 {
     for(int i=0; i<t; i++)
@@ -934,12 +970,19 @@ void listarGrupo(Grupo gp[], int t)
         cout<<"Grupo "<<gp[i].letra<<endl;
         for(int j=0; j<=gp[i].quantidade_atletas-1; j++)
         {
-                cout<<"atleta:"<<gp[i].atletas[j].atleta_nome<<"| pontos:"<<gp[i].atletas[j].pontos<<endl;
+            cout<<"atleta:"<<gp[i].atletas[j].atleta_nome<<"| pontos:"<<gp[i].atletas[j].pontos<<endl;
 
         }
     }
 }
 
+/** \brief Função para criar os confrontos do grupo
+ *
+ * \param gp[] Grupo
+ * \param t int
+ * \return void
+ *
+ */
 void criarConfrontos(Grupo gp[], int t)
 {
     cout<<endl<<"criando os confrontos... "<<endl;
