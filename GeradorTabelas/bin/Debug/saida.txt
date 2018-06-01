@@ -1,71 +1,3 @@
-
-categorias do estadual:
-===RATING A (MAS)===
-Numero de inscritos:2
-===RATING C (MAS)===
-Numero de inscritos:3
-===RATING D (MAS)===
-Numero de inscritos:6
-===RATING E (MAS)===
-Numero de inscritos:12
-===RATING F (MAS)===
-Numero de inscritos:7
-===RATING G (MAS)===
-Numero de inscritos:4
-===RATING A (FEM)===
-Numero de inscritos:3
-===RATING B (FEM)===
-Numero de inscritos:1
-===RATING C (FEM)===
-Numero de inscritos:6
-===SUPER PRE MIRIM (MAS)===
-Numero de inscritos:11
-===PRE MIRIM (MAS)===
-Numero de inscritos:1
-===MIRIM (MAS)===
-Numero de inscritos:6
-===INFANTIL (MAS)===
-Numero de inscritos:3
-===JUVENIL (MAS)===
-Numero de inscritos:3
-===JUVENTUDE (MAS)===
-Numero de inscritos:1
-===ABSOLUTO C (MAS)===
-Numero de inscritos:1
-===ABSOLUTO D (MAS)===
-Numero de inscritos:2
-===ABSOLUTO E (MAS)===
-Numero de inscritos:6
-===SENIOR (MAS)===
-Numero de inscritos:3
-===VETERANO 4 (MAS)===
-Numero de inscritos:3
-===VETERANO 5 (MAS)===
-Numero de inscritos:6
-===VETERANO 6 (MAS)===
-Numero de inscritos:2
-===VETERANO 7 (MAS)===
-Numero de inscritos:2
-===PRE MIRIM (FEM)===
-Numero de inscritos:14
-===INFANTIL (FEM)===
-Numero de inscritos:1
-===JUVENIL (FEM)===
-Numero de inscritos:1
-===JUVENTUDE (FEM)===
-Numero de inscritos:1
-===ABSOLUTO C (FEM)===
-Numero de inscritos:1
-===ABSOLUTO D (FEM)===
-Numero de inscritos:3
-===LADY (FEM)===
-Numero de inscritos:2
-===VETERANO 5 (FEM)===
-Numero de inscritos:1
-===VETERANO 6 (FEM)===
-Numero de inscritos:2
-total Ranking: 76 inscrito(s).
-total Rating: 44 inscrito(s).
 atletas da categoria: RATING A (MAS)
 atleta:FRANCISCO WELLINGTON DE MELO | CENTRO SOCIAL CHIN S / BUTTERFLY-SP | pontos RAT:1503
 atleta:ADRIANO MACEDO DOS SANTOS | ACADEMIA CALANGOS/ANDRO/MONSTERGLUE/NRG CRATO-CE | pontos RAT:1821
@@ -299,20 +231,20 @@ atleta:MARIA DAS GRA«AS LIMA DE FREITAS | AABB NATAL - RN | pontos RAT:250
 atleta:MARIA L⁄CIA CAVALCANTE MOREIRA DE BARROS | AABB NATAL - RN | pontos RAT:228
 2 atleta(s)!
 
+=== Gerar Grupos e confrontos ===
 categoria: RATING A (MAS) com 2 inscrito(s)
 Grupo A
 atleta:ADRIANO MACEDO DOS SANTOS| pontos:1821
 atleta:FRANCISCO WELLINGTON DE MELO| pontos:1503
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  ADRIANO MACEDO DOS SANTOS x FRANCISCO WELLINGTON DE MELO
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: RATING B (MAS) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: RATING C (MAS) com 3 inscrito(s)
@@ -321,13 +253,14 @@ atleta:CARLOS AUGUSTO LYRA MARTINS| pontos:622
 atleta:JOSE BEZERRA DE ARAUJO JUNIOR| pontos:581
 atleta:ANDERSON FREIRE FERNANDES| pontos:570
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  CARLOS AUGUSTO LYRA MARTINS x ANDERSON FREIRE FERNANDES
  JOSE BEZERRA DE ARAUJO JUNIOR x ANDERSON FREIRE FERNANDES
  CARLOS AUGUSTO LYRA MARTINS x JOSE BEZERRA DE ARAUJO JUNIOR
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: RATING D (MAS) com 6 inscrito(s)
 Grupo A
@@ -339,8 +272,6 @@ atleta:MARCOS AUR…LIO FREIRE DA SILVA J⁄NIOR| pontos:502
 atleta:GUSTAVO HENRIQUE DA SILVA MEDEIROS| pontos:499
 atleta:FELIX DA SILVA DANTAS JUNIOR| pontos:422
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  LUCIO RICARDO BARROSO MONTE x EVALDO JOS… COSTA DA SILVA
  AYDANO DE MOURA FERRAZ x EVALDO JOS… COSTA DA SILVA
@@ -351,6 +282,26 @@ Confrontos do Grupo: B
  MARCOS AUR…LIO FREIRE DA SILVA J⁄NIOR x FELIX DA SILVA DANTAS JUNIOR
  GUSTAVO HENRIQUE DA SILVA MEDEIROS x FELIX DA SILVA DANTAS JUNIOR
  MARCOS AUR…LIO FREIRE DA SILVA J⁄NIOR x GUSTAVO HENRIQUE DA SILVA MEDEIROS
+
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
 
 
 categoria: RATING E (MAS) com 12 inscrito(s)
@@ -370,8 +321,6 @@ Grupo D
 atleta:PAULO SERGIO DA SILVA HORTA| pontos:284
 atleta:DOUGLAS WILLE SANTOS DO NASCIMENTO| pontos:283
 atleta:FRANCISCO YOUNGSON PEREIRA LIMA| pontos:260
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  PEDRO BERNARDO DA SILVA J⁄NIOR x JAIME PEREIRA DE SOUSA FILHO
@@ -396,6 +345,46 @@ Confrontos do Grupo: D
  DOUGLAS WILLE SANTOS DO NASCIMENTO x FRANCISCO YOUNGSON PEREIRA LIMA
  PAULO SERGIO DA SILVA HORTA x DOUGLAS WILLE SANTOS DO NASCIMENTO
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----QUARTAS-DE-FINAL-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo C |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo D | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 03 -> | 1o do Grupo B | X | 2o do Grupo D |
+
+          __________________ X __________________
+
+Jogo 04 -> | 1o do Grupo C | X | 2o do Grupo A |
+
+          __________________ X __________________
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 05 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
+Jogo 06 -> | Vencedor 03 | X | Vencedor 04 |
+
+         _________________ X _________________
+
+
+		-----FINAL-----
+
+
+Jogo 07 -> | Vencedor 05 | X | Vencedor 06 |
+
 
 categoria: RATING F (MAS) com 7 inscrito(s)
 Grupo A
@@ -407,8 +396,6 @@ Grupo B
 atleta:FRANCISCO RAFHAEL CARVALHO DOS SANTOS| pontos:264
 atleta:RICARDO CORTES BONIFACIO| pontos:250
 atleta:DAVID DA SILVEIRA MOUSINHO| pontos:250
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  CARLOS ROBERTO COELHO MAIA x FLAVIO COUTINHO DE CARVALHO
@@ -424,23 +411,61 @@ Confrontos do Grupo: B
  RICARDO CORTES BONIFACIO x DAVID DA SILVEIRA MOUSINHO
  FRANCISCO RAFHAEL CARVALHO DOS SANTOS x RICARDO CORTES BONIFACIO
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
 
 categoria: RATING G (MAS) com 4 inscrito(s)
 Grupo A
 atleta:GABRIEL RODOVALHO GOMES| pontos:250
+atleta:RINALD MEDEIROS DE MACEDO| pontos:224
+Grupo B
 atleta:CESAR AUGUSTO ALVES DE LUNA| pontos:246
 atleta:RAFAEL FURTADO CORTES BONIFACIO| pontos:242
-atleta:RINALD MEDEIROS DE MACEDO| pontos:224
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  GABRIEL RODOVALHO GOMES x RINALD MEDEIROS DE MACEDO
+
+
+Confrontos do Grupo: B
  CESAR AUGUSTO ALVES DE LUNA x RAFAEL FURTADO CORTES BONIFACIO
- GABRIEL RODOVALHO GOMES x RAFAEL FURTADO CORTES BONIFACIO
- CESAR AUGUSTO ALVES DE LUNA x RINALD MEDEIROS DE MACEDO
- GABRIEL RODOVALHO GOMES x CESAR AUGUSTO ALVES DE LUNA
- RAFAEL FURTADO CORTES BONIFACIO x RINALD MEDEIROS DE MACEDO
+
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
 
 
 categoria: RATING A (FEM) com 3 inscrito(s)
@@ -449,20 +474,22 @@ atleta:ANNA PAULA SANTOS MARTINS| pontos:943
 atleta:ZULEIDE MARIA CARVALHO LIMA| pontos:935
 atleta:PAMELA DE MOURA RIBEIRO AGRA| pontos:896
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  ANNA PAULA SANTOS MARTINS x PAMELA DE MOURA RIBEIRO AGRA
  ZULEIDE MARIA CARVALHO LIMA x PAMELA DE MOURA RIBEIRO AGRA
  ANNA PAULA SANTOS MARTINS x ZULEIDE MARIA CARVALHO LIMA
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: RATING B (FEM) com 1 inscrito(s)
 Grupo A
 atleta:JULIA BRAGA BARBOSA LIMA| pontos:481
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: RATING C (FEM) com 6 inscrito(s)
 Grupo A
@@ -474,8 +501,6 @@ atleta:YUMI HAN| pontos:306
 atleta:LIZANDRA WANESSA DA SILVA TEIXEIRA| pontos:250
 atleta:MARIA DAS GRA«AS LIMA DE FREITAS| pontos:250
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  KIMI HAN x MARIA L⁄CIA CAVALCANTE MOREIRA DE BARROS
  JESSICA CAROLINE DA SILVA MARINHO x MARIA L⁄CIA CAVALCANTE MOREIRA DE BARROS
@@ -486,6 +511,26 @@ Confrontos do Grupo: B
  YUMI HAN x MARIA DAS GRA«AS LIMA DE FREITAS
  LIZANDRA WANESSA DA SILVA TEIXEIRA x MARIA DAS GRA«AS LIMA DE FREITAS
  YUMI HAN x LIZANDRA WANESSA DA SILVA TEIXEIRA
+
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
 
 
 categoria: RATING D (FEM) com 14 inscrito(s)
@@ -508,8 +553,6 @@ atleta:teste4| pontos:666
 atleta:teste10| pontos:585
 atleta:teste13| pontos:300
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  teste7 x teste2
  teste8 x teste12
@@ -539,6 +582,46 @@ Confrontos do Grupo: D
  teste10 x teste13
  teste4 x teste10
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----QUARTAS-DE-FINAL-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo C |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo D | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 03 -> | 1o do Grupo B | X | 2o do Grupo D |
+
+          __________________ X __________________
+
+Jogo 04 -> | 1o do Grupo C | X | 2o do Grupo A |
+
+          __________________ X __________________
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 05 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
+Jogo 06 -> | Vencedor 03 | X | Vencedor 04 |
+
+         _________________ X _________________
+
+
+		-----FINAL-----
+
+
+Jogo 07 -> | Vencedor 05 | X | Vencedor 06 |
+
 
 categoria: SUPER PRE MIRIM (MAS) com 11 inscrito(s)
 Grupo A
@@ -556,8 +639,6 @@ atleta:atleta do ranking teste| pontos:118
 Grupo D
 atleta:atleta do ranking teste| pontos:118
 atleta:atleta do ranking teste| pontos:118
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  FELIX DA SILVA DANTAS JUNIOR x atleta do ranking teste
@@ -580,13 +661,54 @@ Confrontos do Grupo: C
 Confrontos do Grupo: D
  atleta do ranking teste x atleta do ranking teste
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----QUARTAS-DE-FINAL-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo C |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo D | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 03 -> | 1o do Grupo B | X | 2o do Grupo D |
+
+          __________________ X __________________
+
+Jogo 04 -> | 1o do Grupo C | X | 2o do Grupo A |
+
+          __________________ X __________________
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 05 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
+Jogo 06 -> | Vencedor 03 | X | Vencedor 04 |
+
+         _________________ X _________________
+
+
+		-----FINAL-----
+
+
+Jogo 07 -> | Vencedor 05 | X | Vencedor 06 |
+
 
 categoria: PRE MIRIM (MAS) com 1 inscrito(s)
 Grupo A
 atleta:RAFAEL FURTADO CORTES BONIFACIO| pontos:242
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: MIRIM (MAS) com 6 inscrito(s)
 Grupo A
@@ -597,8 +719,6 @@ Grupo B
 atleta:PABLO VICTOR OLIVEIRA DE SOUSA| pontos:250
 atleta:GABRIEL RODOVALHO GOMES| pontos:250
 atleta:RINALD MEDEIROS DE MACEDO| pontos:224
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  DOUGLAS WILLE SANTOS DO NASCIMENTO x GUILHERME FELIPE RODRIGUES MARIANO
@@ -611,6 +731,26 @@ Confrontos do Grupo: B
  GABRIEL RODOVALHO GOMES x RINALD MEDEIROS DE MACEDO
  PABLO VICTOR OLIVEIRA DE SOUSA x GABRIEL RODOVALHO GOMES
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
 
 categoria: INFANTIL (MAS) com 3 inscrito(s)
 Grupo A
@@ -618,13 +758,14 @@ atleta:LINCOLN DE OLIVEIRA MENDES| pontos:261
 atleta:GABRIEL RODOVALHO GOMES| pontos:250
 atleta:PABLO VICTOR OLIVEIRA DE SOUSA| pontos:250
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  LINCOLN DE OLIVEIRA MENDES x PABLO VICTOR OLIVEIRA DE SOUSA
  GABRIEL RODOVALHO GOMES x PABLO VICTOR OLIVEIRA DE SOUSA
  LINCOLN DE OLIVEIRA MENDES x GABRIEL RODOVALHO GOMES
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: JUVENIL (MAS) com 3 inscrito(s)
 Grupo A
@@ -632,48 +773,48 @@ atleta:GUSTAVO HENRIQUE DA SILVA MEDEIROS| pontos:499
 atleta:FRANCISCO RAFHAEL CARVALHO DOS SANTOS| pontos:264
 atleta:JOS… VITOR MARIANO CHAVES| pontos:254
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  GUSTAVO HENRIQUE DA SILVA MEDEIROS x JOS… VITOR MARIANO CHAVES
  FRANCISCO RAFHAEL CARVALHO DOS SANTOS x JOS… VITOR MARIANO CHAVES
  GUSTAVO HENRIQUE DA SILVA MEDEIROS x FRANCISCO RAFHAEL CARVALHO DOS SANTOS
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: JUVENTUDE (MAS) com 1 inscrito(s)
 Grupo A
 atleta:JOHN VICTOR ALVES LUIZ| pontos:292
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: ABSOLUTO A (MAS) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: ABSOLUTO B (MAS) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: ABSOLUTO C (MAS) com 1 inscrito(s)
 Grupo A
 atleta:JONATHAN SILVA PEREIRA DE SOUZA| pontos:1164
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: ABSOLUTO D (MAS) com 2 inscrito(s)
 Grupo A
 atleta:ANDERSON FREIRE FERNANDES| pontos:570
 atleta:PEDRO BERNARDO DA SILVA J⁄NIOR| pontos:350
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  ANDERSON FREIRE FERNANDES x PEDRO BERNARDO DA SILVA J⁄NIOR
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: ABSOLUTO E (MAS) com 6 inscrito(s)
 Grupo A
@@ -684,8 +825,6 @@ Grupo B
 atleta:JOSE LENILDO FERNANDES DANTAS JUNIOR| pontos:277
 atleta:DANILO FERNANDES  PRAXEDES| pontos:261
 atleta:CARLOS ROBERTO COELHO MAIA NETO| pontos:250
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  MARCOS AUR…LIO FREIRE DA SILVA J⁄NIOR x EVALDO JOS… COSTA DA SILVA
@@ -698,6 +837,26 @@ Confrontos do Grupo: B
  DANILO FERNANDES  PRAXEDES x CARLOS ROBERTO COELHO MAIA NETO
  JOSE LENILDO FERNANDES DANTAS JUNIOR x DANILO FERNANDES  PRAXEDES
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
 
 categoria: SENIOR (MAS) com 3 inscrito(s)
 Grupo A
@@ -705,13 +864,14 @@ atleta:FRANCISCO WELLINGTON DE MELO| pontos:1503
 atleta:JAIME PEREIRA DE SOUSA FILHO| pontos:250
 atleta:DAVID DA SILVEIRA MOUSINHO| pontos:250
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  FRANCISCO WELLINGTON DE MELO x DAVID DA SILVEIRA MOUSINHO
  JAIME PEREIRA DE SOUSA FILHO x DAVID DA SILVEIRA MOUSINHO
  FRANCISCO WELLINGTON DE MELO x JAIME PEREIRA DE SOUSA FILHO
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: VETERANO 4 (MAS) com 3 inscrito(s)
 Grupo A
@@ -719,13 +879,14 @@ atleta:ADRIANO MACEDO DOS SANTOS| pontos:1821
 atleta:AYDANO DE MOURA FERRAZ| pontos:480
 atleta:SERGIO EDUARDO MACHADO DE CARVALHO| pontos:250
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  ADRIANO MACEDO DOS SANTOS x SERGIO EDUARDO MACHADO DE CARVALHO
  AYDANO DE MOURA FERRAZ x SERGIO EDUARDO MACHADO DE CARVALHO
  ADRIANO MACEDO DOS SANTOS x AYDANO DE MOURA FERRAZ
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: VETERANO 5 (MAS) com 6 inscrito(s)
 Grupo A
@@ -736,8 +897,6 @@ Grupo B
 atleta:LUCIO RICARDO BARROSO MONTE| pontos:581
 atleta:PAULO SERGIO DA SILVA HORTA| pontos:284
 atleta:RICARDO CORTES BONIFACIO| pontos:250
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  ECILDO LOPES DE OLIVEIRA x FLAVIO COUTINHO DE CARVALHO
@@ -750,32 +909,52 @@ Confrontos do Grupo: B
  PAULO SERGIO DA SILVA HORTA x RICARDO CORTES BONIFACIO
  LUCIO RICARDO BARROSO MONTE x PAULO SERGIO DA SILVA HORTA
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo B | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+
+		-----FINAL-----
+Jogo 03 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
 
 categoria: VETERANO 6 (MAS) com 2 inscrito(s)
 Grupo A
 atleta:CARLOS AUGUSTO LYRA MARTINS| pontos:622
 atleta:JOSE BEZERRA DE ARAUJO JUNIOR| pontos:581
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  CARLOS AUGUSTO LYRA MARTINS x JOSE BEZERRA DE ARAUJO JUNIOR
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: VETERANO 7 (MAS) com 2 inscrito(s)
 Grupo A
 atleta:RONALDO PIRES FERREIRA| pontos:340
 atleta:CARLOS ROBERTO COELHO MAIA| pontos:300
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  RONALDO PIRES FERREIRA x CARLOS ROBERTO COELHO MAIA
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: SUPER PRE MIRIM (FEM) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: PRE MIRIM (FEM) com 14 inscrito(s)
@@ -797,8 +976,6 @@ Grupo D
 atleta:teste4| pontos:666
 atleta:teste10| pontos:585
 atleta:teste13| pontos:300
-
-criando os confrontos... 
 
 Confrontos do Grupo: A
  teste7 x teste2
@@ -829,49 +1006,87 @@ Confrontos do Grupo: D
  teste10 x teste13
  teste4 x teste10
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+
+		-----QUARTAS-DE-FINAL-----
+
+
+Jogo 01 -> | 1o do Grupo A | X | 2o do Grupo C |
+
+          __________________ X __________________
+
+Jogo 02 -> | 1o do Grupo D | X | 2o do Grupo B |
+
+          __________________ X __________________
+
+Jogo 03 -> | 1o do Grupo B | X | 2o do Grupo D |
+
+          __________________ X __________________
+
+Jogo 04 -> | 1o do Grupo C | X | 2o do Grupo A |
+
+          __________________ X __________________
+
+
+		-----SEMI-FINAIS-----
+
+
+Jogo 05 -> | Vencedor 01 | X | Vencedor 02 |
+
+         _________________ X _________________
+
+Jogo 06 -> | Vencedor 03 | X | Vencedor 04 |
+
+         _________________ X _________________
+
+
+		-----FINAL-----
+
+
+Jogo 07 -> | Vencedor 05 | X | Vencedor 06 |
+
 
 categoria: MIRIM (FEM) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: INFANTIL (FEM) com 1 inscrito(s)
 Grupo A
 atleta:KIMI HAN| pontos:397
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: JUVENIL (FEM) com 1 inscrito(s)
 Grupo A
 atleta:YUMI HAN| pontos:306
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: JUVENTUDE (FEM) com 1 inscrito(s)
 Grupo A
 atleta:LAYSLLA DE SOUSA FERREIRA DIAS| pontos:250
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: ABSOLUTO A (FEM) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: ABSOLUTO B (FEM) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: ABSOLUTO C (FEM) com 1 inscrito(s)
 Grupo A
 atleta:JESSICA CAROLINE DA SILVA MARINHO| pontos:250
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: ABSOLUTO D (FEM) com 3 inscrito(s)
 Grupo A
@@ -879,45 +1094,50 @@ atleta:PAMELA DE MOURA RIBEIRO AGRA| pontos:896
 atleta:LAYSLLA DE SOUSA FERREIRA DIAS| pontos:250
 atleta:LIZANDRA WANESSA DA SILVA TEIXEIRA| pontos:250
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  PAMELA DE MOURA RIBEIRO AGRA x LIZANDRA WANESSA DA SILVA TEIXEIRA
  LAYSLLA DE SOUSA FERREIRA DIAS x LIZANDRA WANESSA DA SILVA TEIXEIRA
  PAMELA DE MOURA RIBEIRO AGRA x LAYSLLA DE SOUSA FERREIRA DIAS
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: LADY (FEM) com 2 inscrito(s)
 Grupo A
 atleta:ANNA PAULA SANTOS MARTINS| pontos:943
 atleta:JULIA BRAGA BARBOSA LIMA| pontos:481
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  ANNA PAULA SANTOS MARTINS x JULIA BRAGA BARBOSA LIMA
 
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: VETERANO 4 (FEM) com 0 inscrito(s)
-
-criando os confrontos... 
 nao possui inscritos!
 
 categoria: VETERANO 5 (FEM) com 1 inscrito(s)
 Grupo A
 atleta:ZULEIDE MARIA CARVALHO LIMA| pontos:935
-
-criando os confrontos... 
 n√£o possui atleta suficiente...
+		-----CONFRONTOS ELIMINATORIOS-----
+
+			-----GRUPO UNICO!-----
 
 categoria: VETERANO 6 (FEM) com 2 inscrito(s)
 Grupo A
 atleta:MARIA DAS GRA«AS LIMA DE FREITAS| pontos:250
 atleta:MARIA L⁄CIA CAVALCANTE MOREIRA DE BARROS| pontos:228
 
-criando os confrontos... 
-
 Confrontos do Grupo: A
  MARIA DAS GRA«AS LIMA DE FREITAS x MARIA L⁄CIA CAVALCANTE MOREIRA DE BARROS
 
+		-----CONFRONTOS ELIMINATORIOS-----
 
+			-----GRUPO UNICO!-----
+
+fim da execucao!
+Obrigado por utilizado nosso gerador!
+Pressione qualquer tecla para continuar. . . 

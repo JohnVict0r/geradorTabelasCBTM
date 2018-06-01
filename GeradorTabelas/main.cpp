@@ -217,6 +217,9 @@ int main()
     cout<<"=== Gerar Grupos e confrontos ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
 
+    cout<<"fim da execucao!"<<endl;
+    cout<<"Obrigado por utilizado nosso gerador!"<<endl;
+    system("pause");
     return 0;
 }
 
@@ -1044,6 +1047,9 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
         if(qt_atletas==8)//exemplo de modelagem de atletas por grupo
         {
             numAtletaPorGrupo=4;
+        }else if(qt_atletas==4)
+        {
+            numAtletaPorGrupo=2;
         }
         qt_grupos=qt_atletas/numAtletaPorGrupo; // 0 quando menor que trÊs... verificar
 
@@ -1139,7 +1145,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
             gp[0].letra=l[letra];
             gp[0].categoria=atleta[i].categoria_fpotm;
             gp[0].quantidade_atletas=r;
-            qt_grupos=1;
+            qt_grupos=1;//teste com 0
 
             for(int a=0; a<r; a++)
             {
@@ -1231,7 +1237,6 @@ void listarGrupo(Grupo gp[], int t)
  */
 void criarConfrontos(Grupo gp[], int t)
 {
-    cout<<endl<<"criando os confrontos... "<<endl;
 
     int n;
 
@@ -1303,7 +1308,7 @@ void criarConfrontos(Grupo gp[], int t)
         }
         else
         {
-            cout<<"não possui inscritos!"<<endl;
+            cout<<"nao possui inscritos!"<<endl;
         }
 
 
@@ -1348,7 +1353,7 @@ void listarConfrontos(Grupo gp[],int t)
 void confrontosEliminatorios(int quant_grupos)
 {
 
-    cout<<"                             -----CONFRONTOS ELIMINATORIOS-----\n"<<endl;
+    if(quant_grupos!=0)cout<<"\t\t-----CONFRONTOS ELIMINATORIOS-----\n"<<endl;
 
     if(quant_grupos%2==0)
     {
@@ -1496,9 +1501,9 @@ void confrontosEliminatorios(int quant_grupos)
     {
         if(quant_grupos==1)
         {
-            cout<<"\n\t\t-----FINAL-----"<<endl;
-            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\t\t\t-----GRUPO UNICO!-----"<<endl;
+            //cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            //cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
 
         }else if(quant_grupos==3)
         {
