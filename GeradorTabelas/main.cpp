@@ -129,6 +129,7 @@ void ordenarAtletasGrupoCrescente(Grupo gp[], int t);
 void listarGrupo(Grupo gp[], int t);
 void criarConfrontos(Grupo gp[], int t);
 void listarConfrontos(Grupo gp[], int t);
+void confrontosEliminatorios(int quant_grupos);
 
 
 int main()
@@ -206,14 +207,14 @@ int main()
 
     //cout<<"---RELATÓRIO DE INSCRITOS FPOTM---"<<endl;
 
-    listarCategoriasFpotm(categoriaInterstadual);
+    //listarCategoriasFpotm(categoriaInterstadual);
 
     //cout<<"---Atletas separados por categoria(FPOTM)---"<<endl;
     separarAtletasPorCategoriaFpotm(atletaCategoria,categoriaInterstadual,inscrito,cont,qt);
 
     ordenarAtletasCategoriaCrescente(atletaCategoria);
 
-    //cout<<"=== Gerar Grupos e confrontos ==="<<endl;
+    cout<<"=== Gerar Grupos e confrontos ==="<<endl;
     CriarGruposclassificatorios(atletaCategoria,grupos);
 
     return 0;
@@ -1334,5 +1335,212 @@ void listarConfrontos(Grupo gp[],int t)
 ////
         }
         cout<<endl;
+    }
+    confrontosEliminatorios(t);
+}
+
+/** \brief
+ *  modelagem dos cruzamentos da fase eliminatoria
+ * \param quant_grupos int
+ * \return void
+ *
+ */
+void confrontosEliminatorios(int quant_grupos)
+{
+
+    cout<<"                             -----CONFRONTOS ELIMINATORIOS-----\n"<<endl;
+
+    if(quant_grupos%2==0)
+    {
+        if(quant_grupos==2)
+        {
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl;
+            cout<<"Jogo 03 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+
+        }
+        else if(quant_grupos==4)
+        {
+            cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 1o do Grupo D |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 03 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo D |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 04 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 05 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 06 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 07 -> "<<"| Vencedor 05 |"<<" X "<<"| Vencedor 06 |"<<endl<<endl;
+
+        }
+        else if(quant_grupos==8)
+        {
+            cout<<"\n\t\t-----OITAVAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo H |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 1o do Grupo F |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 03 -> "<<"| 1o do Grupo G |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 04 -> "<<"| 1o do Grupo D |"<<" X "<<"| 2o do Grupo E |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 05 -> "<<"| 1o do Grupo E |"<<" X "<<"| 2o do Grupo D |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 06 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo G |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 07 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo F |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 08 -> "<<"| 1o do Grupo H |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 09 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 10 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 11 -> "<<"| Vencedor 05 |"<<" X "<<"| Vencedor 06 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 12 -> "<<"| Vencedor 07 |"<<" X "<<"| Vencedor 08 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 13 -> "<<"| Vencedor 09 |"<<" X "<<"| Vencedor 10 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 14 -> "<<"| Vencedor 11 |"<<" X "<<"| Vencedor 12 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 15 -> "<<"| Vencedor 13 |"<<" X "<<"| Vencedor 14 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+        }
+        else if(quant_grupos==16)
+        {
+            cout<<"\n\t\t-----CHAVES-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo P |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 1o do Grupo E |"<<" X "<<"| 2o do Grupo L |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 03 -> "<<"| 1o do Grupo J |"<<" X "<<"| 2o do Grupo G |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 04 -> "<<"| 1o do Grupo N |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 05 -> "<<"| 1o do Grupo D |"<<" X "<<"| 2o do Grupo M |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 06 -> "<<"| 1o do Grupo K |"<<" X "<<"| 2o do Grupo F |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 07 -> "<<"| 1o do Grupo H |"<<" X "<<"| 2o do Grupo I |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 08 -> "<<"| 1o do Grupo O |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 09 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo O |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 10 -> "<<"| 1o do Grupo I |"<<" X "<<"| 2o do Grupo H |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 11 -> "<<"| 1o do Grupo F |"<<" X "<<"| 2o do Grupo K |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 12 -> "<<"| 1o do Grupo M |"<<" X "<<"| 2o do Grupo D |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 13 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo N |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 14 -> "<<"| 1o do Grupo G |"<<" X "<<"| 2o do Grupo J |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 15 -> "<<"| 1o do Grupo L |"<<" X "<<"| 2o do Grupo E |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 16 -> "<<"| 1o do Grupo P |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----OITAVAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 17 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 18 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 19 -> "<<"| Vencedor 05 |"<<" X "<<"| Vencedor 06 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 20 -> "<<"| Vencedor 07 |"<<" X "<<"| Vencedor 08 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 21 -> "<<"| Vencedor 09 |"<<" X "<<"| Vencedor 10 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 22 -> "<<"| Vencedor 11 |"<<" X "<<"| Vencedor 12 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 23 -> "<<"| Vencedor 13 |"<<" X "<<"| Vencedor 14 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 24 -> "<<"| Vencedor 15 |"<<" X "<<"| Vencedor 16 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 25 -> "<<"| Vencedor 17 |"<<" X "<<"| Vencedor 18 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 26 -> "<<"| Vencedor 19 |"<<" X "<<"| Vencedor 20 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 27 -> "<<"| Vencedor 21 |"<<" X "<<"| Vencedor 22 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 28 -> "<<"| Vencedor 23 |"<<" X "<<"| Vencedor 24 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 29 -> "<<"| Vencedor 25 |"<<" X "<<"| Vencedor 26 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 30 -> "<<"| Vencedor 27 |"<<" X "<<"| Vencedor 28 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 31 -> "<<"| Vencedor 29 |"<<" X "<<"| Vencedor 30 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+        }
+    }
+    else
+    {
+        if(quant_grupos==1)
+        {
+            cout<<"\n\t\t-----FINAL-----"<<endl;
+            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+
+        }else if(quant_grupos==3)
+        {
+            cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 2o do Grupo B |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 03 -> "<<"| Vencedor 01 |"<<" X "<<"| 1o do Grupo A |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 04 -> "<<"| Vencedor 02 |"<<" X "<<"| 1o do Grupo B |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 31 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+        }
+        else if(quant_grupos==5)
+        {
+            cout<<"\n\t\t-----OITAVAS-DE-FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 01 -> "<<"| 2o do Grupo B |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 02 -> "<<"| 2o do Grupo A |"<<" X "<<"| 2o do Grupo D |"<<endl<<endl;
+            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"\n\t\t-----QUARTAS-DE-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 03 -> "<<"| Vencedor 01 |"<<" X "<<"| 1o do Grupo A |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 04 -> "<<"| 1o do Grupo D |"<<" X "<<"| 1o do Grupo E |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 05 -> "<<"| Vencedor 02 |"<<" X "<<"| 1o do Grupo B |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 06 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo E |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
+            cout<<"Jogo 07 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 08 -> "<<"| Vencedor 05 |"<<" X "<<"| Vencedor 06 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
+            cout<<"Jogo 09 -> "<<"| Vencedor 07 |"<<" X "<<"| Vencedor 08 |"<<endl<<endl;
+            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+
+        }
     }
 }
