@@ -169,7 +169,7 @@ int main()
             getline(ip,t.ratingP,';');
             getline(ip,t.participaRAT,';');
             getline(ip,t.status,'\n');
-            if(t.ratingP=="" || t.status!="Inscrito")
+            if(t.ratingP=="" || (t.status!="Inscrito" && t.status!="INSCRITO" && t.status!="inscrito"))
             {
                 /*cout<<"!!!TECNICO!!!";
                  *não pegar quando for técnico e tecnico não possuem pontos de rating no momento;
