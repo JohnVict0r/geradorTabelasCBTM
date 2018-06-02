@@ -897,8 +897,8 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
         atletaCategoria[i].categoria_fpotm.categoria=c[i].categoria;
         if(c[i].quantidade_inscritos==0)
             continue;
-
-        cout<<"atletas da categoria: "<<c[i].categoria<<endl;
+        cout<<"Categoria: "<<c[i].categoria<<endl;
+        cout<<"Atleta \t; Clube \t; Pontos "<<endl;
 
         cont=0;
         for(int j=0; j<c[i].quantidade_categorias; j++)
@@ -913,14 +913,14 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                         cont++;
                         atletaCategoria[i].atleta[cont]=atleta[k];
 
-                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                        cout<<atleta[k].atleta_nome<<"\t "<<atleta[k].clube<<"\t "<<atleta[k].ratingP<<endl;
 
                     }
                     else if( c[i].categoria=="RATING G (MAS)" && (atleta[k].ranking=="SUPER PRE MIRIM (MAS)" || atleta[k].ranking=="PRE MIRIM (MAS)" || atleta[k].ranking=="MIRIM (MAS)"))
                     {
                         cont++;
                         atletaCategoria[i].atleta[cont]=atleta[k];
-                        cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                        cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
 
                     }
                     else if(c[i].categoria!="RATING F (MAS)" &&  c[i].categoria!="RATING G (MAS)")
@@ -931,26 +931,26 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                             {
                                 cont++;
                                 atletaCategoria[i].atleta[cont]=atleta[k];
-                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                                cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
                             }
                             else if(c[i].categoria=="RATING D (FEM)"&&(atleta[k].ranking=="SUPER PRE MIRIM (FEM)" || atleta[k].ranking=="PRE MIRIM (FEM)" || atleta[k].ranking=="MIRIM (FEM)"))
                             {
                                 cont++;
                                 atletaCategoria[i].atleta[cont]=atleta[k];
-                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                                cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
                             }
                             else if(c[i].categoria!="RATING C (FEM)"&&c[i].categoria!="RATING D (FEM)")
                             {
                                 cont++;
                                 atletaCategoria[i].atleta[cont]=atleta[k];
-                                cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                                cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
                             }
                         }
                         else
                         {
                             cont++;
                             atletaCategoria[i].atleta[cont]=atleta[k];
-                            cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                            cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
                         }
 
                     }
@@ -960,7 +960,7 @@ void separarAtletasPorCategoriaFpotm(AtletasCategorias atletaCategoria[], Catego
                 {
                     cont++;
                     atletaCategoria[i].atleta[cont]=atleta[k];
-                    cout<<"atleta:"<<atleta[k].atleta_nome<<" | "<<atleta[k].clube<<" | pontos RAT:"<<atleta[k].ratingP<<endl;
+                    cout<<atleta[k].atleta_nome<<"\t; "<<atleta[k].clube<<"\t; "<<atleta[k].ratingP<<endl;
                 }
 
 
@@ -1162,7 +1162,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
         listarConfrontos(gp,qt_grupos);
         if(atleta[i].categoria_fpotm.quantidade_inscritos==0)
         {
-            cout<<"nao possui inscritos!"<<endl;
+            //cout<<"nao possui inscritos!"<<endl;
         }
         cout<<endl;
     }
@@ -1217,12 +1217,13 @@ void ordenarAtletasGrupoCrescente(Grupo gp[], int t)
  */
 void listarGrupo(Grupo gp[], int t)
 {
+    cout<<"Grupo \t; Atleta \t;; Clube \t; Pontos";
     for(int i=0; i<t; i++)
     {
-        cout<<"Grupo "<<gp[i].letra<<endl;
+        cout<<endl;
         for(int j=0; j<=gp[i].quantidade_atletas-1; j++)
         {
-            cout<<"atleta:"<<gp[i].atletas[j].atleta_nome<<"| pontos:"<<gp[i].atletas[j].pontos<<endl;
+            cout<<gp[i].letra<<"\t;"<<gp[i].atletas[j].atleta_nome<<"\t;;"<<gp[i].atletas[j].clube<<"\t;"<<gp[i].atletas[j].pontos<<endl;
 
         }
     }
@@ -1243,6 +1244,7 @@ void criarConfrontos(Grupo gp[], int t)
     for(int j=0; j<t; j++)
     {
         n=gp[j].quantidade_atletas;
+
 
         if (n==1)
         {
@@ -1308,7 +1310,7 @@ void criarConfrontos(Grupo gp[], int t)
         }
         else
         {
-            cout<<"nao possui inscritos!"<<endl;
+            //cout<<"nao possui inscritos!"<<endl<<endl;
         }
 
 
@@ -1335,7 +1337,7 @@ void listarConfrontos(Grupo gp[],int t)
         for(int i=0; i<gp[j].quantidade_confrontos; i++)
         {
 
-            cout<<" " << gp[j].confrontos[i].atleta01.atleta_nome <<" x "<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
+            cout<<"\t;"<< gp[j].confrontos[i].atleta01.atleta_nome <<"\t; x ;\t"<< gp[j].confrontos[i].atleta02.atleta_nome <<endl;
 
 ////
         }
@@ -1360,33 +1362,27 @@ void confrontosEliminatorios(int quant_grupos)
         if(quant_grupos==2)
         {
             cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
-            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
-            cout<<"Jogo 02 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 01 \t;"<<" 1o A                "<<"\t; X ;\t"<<"                2o B "<<endl<<endl;
+            cout<<"Jogo 02 \t;"<<" 1o B                "<<"\t; X ;\t"<<"                2o A "<<endl<<endl;
             cout<<"\n\t\t-----FINAL-----"<<endl;
-            cout<<"Jogo 03 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 03 \t;"<<" Vencedor 01                "<<"\t; X ;\t"<<"                Vencedor 02"<<endl<<endl;
 
         }
         else if(quant_grupos==4)
         {
             cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
-            cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
-            cout<<"Jogo 02 -> "<<"| 1o do Grupo D |"<<" X "<<"| 2o do Grupo B |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
-            cout<<"Jogo 03 -> "<<"| 1o do Grupo B |"<<" X "<<"| 2o do Grupo D |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
-            cout<<"Jogo 04 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+            cout<<"Jogo 01 \t;"<<" 1o A                "<<"\t; X ;\t"<<"                2o C "<<endl<<endl;
+            cout<<"Jogo 02 \t;"<<" 1o D                "<<"\t; X ;\t"<<"                2o B "<<endl<<endl;
+            cout<<"Jogo 03 \t;"<<" 1o B                "<<"\t; X ;\t"<<"                2o D "<<endl<<endl;
+            cout<<"Jogo 04 \t;"<<" 1o C                "<<"\t; X ;\t"<<"                2o A "<<endl<<endl;
+
             cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
-            cout<<"Jogo 05 -> "<<"| Vencedor 01 |"<<" X "<<"| Vencedor 02 |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
-            cout<<"Jogo 06 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 05 \t;"<<" Vencedor 01                "<<"\t; X ;\t"<<"                Vencedor 02"<<endl<<endl;
+            cout<<"Jogo 06 \t;"<<" Vencedor 03                "<<"\t; X ;\t"<<"                Vencedor 04"<<endl<<endl;
+
             cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
-            cout<<"Jogo 07 -> "<<"| Vencedor 05 |"<<" X "<<"| Vencedor 06 |"<<endl<<endl;
+            cout<<"Jogo 07 \t;"<<" Vencedor 05                "<<"\t; X ;\t"<<"                Vencedor 06"<<endl<<endl;
+
 
         }
         else if(quant_grupos==8)
@@ -1508,18 +1504,19 @@ void confrontosEliminatorios(int quant_grupos)
         }else if(quant_grupos==3)
         {
             cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
-            cout<<"Jogo 01 -> "<<"| 2o do Grupo B |"<<" X "<<"| 2o do Grupo C |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
-            cout<<"Jogo 02 -> "<<"| 1o do Grupo C |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
-            cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
+
+            cout<<"Jogo 01 \t;"<<" 2o B                "<<"\t; X ;\t"<<"                2o C "<<endl<<endl;
+            cout<<"Jogo 02 \t;"<<" 1o C                "<<"\t; X ;\t"<<"                2o A "<<endl<<endl;
+            cout<<"Jogo 03 \t;"<<" 1o B                "<<"\t; X ;\t"<<"                2o A "<<endl<<endl;
+
             cout<<"\n\t\t-----SEMI-FINAIS-----"<<endl<<endl<<endl;
-            cout<<"Jogo 03 -> "<<"| Vencedor 01 |"<<" X "<<"| 1o do Grupo A |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
-            cout<<"Jogo 04 -> "<<"| Vencedor 02 |"<<" X "<<"| 1o do Grupo B |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+
+            cout<<"Jogo 04 \t;"<<" Vencedor 01                "<<"\t; X ;\t"<<"                1o A"<<endl<<endl;
+            cout<<"Jogo 05 \t;"<<" Vencedor 02                "<<"\t; X ;\t"<<"                1o B"<<endl<<endl;
+
             cout<<"\n\t\t-----FINAL-----"<<endl<<endl<<endl;
-            cout<<"Jogo 31 -> "<<"| Vencedor 03 |"<<" X "<<"| Vencedor 04 |"<<endl<<endl;
-            cout<<"         "<<"_________________ "<<"X"<<" _________________"<<endl<<endl;
+            cout<<"Jogo 06 \t;"<<" Vencedor 04                "<<"\t; X ;\t"<<"                Vencedor 05"<<endl<<endl;
+
         }
         else if(quant_grupos==5)
         {
