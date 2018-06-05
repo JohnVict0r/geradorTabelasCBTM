@@ -1044,10 +1044,7 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
 
         numAtletaPorGrupo=3;
 
-        if(qt_atletas==8)//exemplo de modelagem de atletas por grupo
-        {
-            numAtletaPorGrupo=4;
-        }else if(qt_atletas==4)
+        if(qt_atletas==4)
         {
             numAtletaPorGrupo=2;
         }
@@ -1059,85 +1056,96 @@ void CriarGruposclassificatorios( AtletasCategorias atleta[], Grupo gp[])
         if(qt_grupos>0)
         {
 
-
-
-            for(int j=0; j<qt_grupos; j++)
+            if(r==2)
             {
-                gp[j].letra=l[letra];
-                gp[j].categoria=atleta[i].categoria_fpotm;
-                gp[j].quantidade_atletas=numAtletaPorGrupo;
-
-                gp[j].atletas[0]=atleta[i].atleta[qt_atletas];
-
+                gp[0].letra=l[letra];
+                gp[0].atletas[0]=atleta[i].atleta[qt_atletas];
                 qt_atletas--;
+                gp[0].atletas[1]=atleta[i].atleta[qt_atletas];
+                qt_atletas--;
+                gp[0].quantidade_atletas=2;
+                qt_grupos++;
                 letra++;
 
-            }
-            int a=1;
-            for(int k=1; k<numAtletaPorGrupo && a<=qt_atletas ; k++)
-            {
-                letra=0;
+                for(int j=1; j<qt_grupos; j++)
+                {
+                    gp[j].letra=l[letra];
+                    gp[j].categoria=atleta[i].categoria_fpotm;
+                    gp[j].quantidade_atletas=numAtletaPorGrupo;
 
+                    gp[j].atletas[0]=atleta[i].atleta[qt_atletas];
+
+                    qt_atletas--;
+                    letra++;
+
+                }
+                int a=1;
+                for(int k=1; k<numAtletaPorGrupo && a<=qt_atletas ; k++)
+                {
+                    letra=1;
+
+                    for(int j=1; j<qt_grupos; j++)
+                    {
+                        gp[j].letra=l[letra];
+                        gp[j].categoria=atleta[i].categoria_fpotm;
+                        gp[j].quantidade_atletas=numAtletaPorGrupo;
+
+                        gp[j].atletas[k]=atleta[i].atleta[a];
+
+                        a++;
+                        letra++;
+
+                    }
+
+                }
+
+            }
+            else
+            {
                 for(int j=0; j<qt_grupos; j++)
                 {
                     gp[j].letra=l[letra];
                     gp[j].categoria=atleta[i].categoria_fpotm;
                     gp[j].quantidade_atletas=numAtletaPorGrupo;
 
-                    gp[j].atletas[k]=atleta[i].atleta[a];
+                    gp[j].atletas[0]=atleta[i].atleta[qt_atletas];
 
-                    a++;
+                    qt_atletas--;
                     letra++;
 
                 }
+                int a=1;
 
-
-
-            }
-
-
-
-            if(r==1)
-            {
-
-
-                gp[0].atletas[3]=atleta[i].atleta[qt_atletas];
-
-                qt_atletas--;
-                gp[0].quantidade_atletas++;
-
-
-            }
-            else if(r==2)
-            {
-                if(qt_grupos==4)
+                if(r==1)a++;
+                //CORRIGIR ESSE FOR, ALGORITMO DE DISTRIBUIÇAO DOS ATLETAS.
+                for(int k=1; k<numAtletaPorGrupo && a<=qt_atletas ; k++)
                 {
-                    for(int a=r-1; a>=0; a--)
-                    {
-                        gp[a].atletas[3]=atleta[i].atleta[qt_atletas];
+                    letra=0;
 
-                        qt_atletas--;
-                        gp[a].quantidade_atletas++;
+                    for(int j=0; j<qt_grupos; j++)
+                    {
+                        gp[j].letra=l[letra];
+                        gp[j].categoria=atleta[i].categoria_fpotm;
+                        gp[j].quantidade_atletas=numAtletaPorGrupo;
+
+                        gp[j].atletas[k]=atleta[i].atleta[a];
+
+                        a++;
+                        letra++;
 
                     }
+
                 }
-                else
+                if(r==1)
                 {
-                    gp[qt_grupos].atletas[0]=atleta[i].atleta[qt_atletas];
 
-                    qt_atletas--;
+                    gp[qt_grupos-1].atletas[3]=atleta[i].atleta[1];
+                    gp[qt_grupos-1].quantidade_atletas++;
 
-                    gp[qt_grupos].atletas[1]=atleta[i].atleta[qt_atletas];
 
-                    qt_atletas--;
-
-                    gp[qt_grupos].quantidade_atletas=2;
-
-                    qt_grupos++;
                 }
+
             }
-
-
 
         }
         else if (r>0)
@@ -1501,7 +1509,8 @@ void confrontosEliminatorios(int quant_grupos)
             //cout<<"Jogo 01 -> "<<"| 1o do Grupo A |"<<" X "<<"| 2o do Grupo A |"<<endl<<endl;
             //cout<<"          "<<"__________________ "<<"X"<<" __________________"<<endl<<endl;
 
-        }else if(quant_grupos==3)
+        }
+        else if(quant_grupos==3)
         {
             cout<<"\n\t\t-----QUARTAS-DE-FINAL-----"<<endl<<endl<<endl;
 
